@@ -51,5 +51,9 @@
         "temp/": true,
         "Temp/": true
     },
+<<<<<<< HEAD
     "dotnet.defaultSolution": "experiment3.sln"
+=======
+    "dotnet.defaultSolution": "experiment.sln"
+>>>>>>> 23d96e1ff4697602df4d82c77ccd829c501b5e02
 }
