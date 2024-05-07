@@ -17,7 +17,7 @@ public class DebugDisplay : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(OVRInput.Get(OVRInput.RawButton.LIndexTrigger));
+        //Debug.Log(OVRInput.Get(OVRInput.RawButton.LIndexTrigger));
     }
 
     void OnEnable()
@@ -54,7 +54,7 @@ public class DebugDisplay : MonoBehaviour
         text.text += builder.ToString();
         //text.text += logString + "\n";
         AdjustText(text);
-        Debug.Log("Debug:" + logString);
+        //Debug.Log("Debug:" + logString);
 
     }
 
