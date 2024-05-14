@@ -9,8 +9,20 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public class XRRigidMove : MonoBehaviour
 {
-    private Rigidbody rb;
+    [Header("ControllerInput")]
     [SerializeField] private InputActionProperty moveStick;
+    [SerializeField] private InputActionProperty jumpButton;
+
+    [Header("MoveParameter")] [SerializeField]
+    private float speed = 10f;
+    private Rigidbody rb;
+    
+    [Header("JumpParameter")]
+    [SerializeField]private float groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float radius = 0.3f;
+    private RaycastHit hit;
+
 
 
 
@@ -30,24 +42,40 @@ public class XRRigidMove : MonoBehaviour
     private void FixedUpdate()
     {
         var moveAction = moveStick.action;
+        var jumpAction = jumpButton.action;
+        
         // moveActionから入力値を取得し、使用する
         Vector2 input = moveAction.ReadValue<Vector2>();
-        Debug.Log("Input Vector: " + input);
-        // Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+        // Debug.Log("Input Vector: " + input);
+        
+        //jumpActionからの入力を受け取る
+        if (jumpAction.IsPressed()&&CheckGrounded())
+        {
+            // jumped = true;
+            rb.AddForce(new Vector3(0,1,0),ForceMode.Impulse);
+            Debug.Log("Jump");
+        }
 
         Vector3 move = new Vector3(input.x, 0, input.y);
 
-        rb.velocity += move * 0.5f;
-        //Debug.Log(rb.velocity);
-
-        // if (OVRInput.GetDown(OVRInput.RawButton.A))
-        // {
-        //     rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
-
-        //     Debug.Log("jump");
-        // }
+        rb.velocity += move * (speed * 0.01f);
+        
+        
 
     }
+
+    private bool CheckGrounded()
+    {
+        bool debug = Physics.SphereCast(this.transform.position, radius, Vector3.down, out hit, groundCheckDistance, groundLayer);
+        Debug.Log(debug);
+        return debug;
+    }
+    
+
+    // private void Grounded(Collision collision)
+    // {
+    //     Debug.Log(collision.gameObject);
+    // }
 
 
 }
