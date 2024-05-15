@@ -1,0 +1,34 @@
+{
+    "name": "XR Additional Action",
+    "maps": [
+        {
+            "name": "Locomotion",
+            "id": "841b81bf-baf5-4a93-83a4-8e50a8b0e031",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "87aa6889-84eb-45ce-a263-98bddf751235",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9cee1e43-6d65-4a59-aa49-6964a908216f",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
