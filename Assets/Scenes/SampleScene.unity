@@ -413,8 +413,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameView
       objectReference: {fileID: 0}
+    - target: {fileID: 6928910924828185374, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3589154059436893365, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+    - {fileID: 8849559900332589542, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
