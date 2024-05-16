@@ -9904,6 +9904,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 658316781155928804, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952291450686985824, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+      propertyPath: m_Color.a
+      value: 0.8784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415688977485961488, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 600319934707360246, guid: e4435914cdd3bd24888289eda9caa873, type: 3}
     - target: {fileID: 3415688977485961488, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
       propertyPath: sord
       value: 

@@ -13,6 +13,8 @@ public class RightWeaponController : MonoBehaviour
     [SerializeField] private GameObject rightController;
     //剣のprefab
     [SerializeField] private GameObject sord;
+    //銃のprefab
+    [SerializeField] private GameObject gun;
     //装備してるweapon
     private GameObject currentWeapon;
     //右コントローラーの位置
@@ -27,6 +29,8 @@ public class RightWeaponController : MonoBehaviour
         //武器を登録
         weapons.Add(rightController);
         weapons.Add(sord);
+        weapons.Add(gun);
+
         parent = this.transform;
         //初めは右コントローラーを表示
         currentWeapon = Instantiate(rightController, parent);
@@ -61,6 +65,11 @@ public class RightWeaponController : MonoBehaviour
                 //コントローラーを生成
                 currentWeapon = Instantiate(rightController, parent);
                 Debug.Log("change");
+                weaponCnt++;
+            }else if(weaponCnt == 2)
+            {
+                Destroy(currentWeapon);
+                currentWeapon = Instantiate(gun, parent);
                 weaponCnt++;
             }
 
