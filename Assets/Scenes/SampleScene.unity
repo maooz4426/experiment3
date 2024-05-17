@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17492186, g: 0.04681235, b: 0.02992402, a: 1}
+  m_IndirectSpecularColor: {r: 0.21111889, g: 0.05814965, b: 0.036026325, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -369,62 +369,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_ModelPrefab
-      value: 
-      objectReference: {fileID: 8270855663187062767, guid: 1392f805216c47742996d4742c80721c, type: 3}
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_IsTrackedAction.m_Action.m_Id
-      value: df2bc616-295b-45b8-b763-7ab7eb28615d
-      objectReference: {fileID: 0}
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_UIScrollAction.m_UseReference
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_IsTrackedAction.m_UseReference
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_IsTrackedAction.m_Action.m_Name
-      value: Is Tracked
-      objectReference: {fileID: 0}
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_ScaleDeltaAction.m_UseReference
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_ScaleToggleAction.m_UseReference
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 353820832563989470, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_DirectionalAnchorRotationAction.m_UseReference
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 448750916127928443, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1827108860624942355, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1916120849258436733, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2012622134207525381, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_ModelPrefab
-      value: 
-      objectReference: {fileID: 3475118261464492563, guid: 9f3369e30fbd31f4bb596b1a99babe83, type: 3}
-    - target: {fileID: 3416456280029811708, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d0d8e4fc1435a445fba84dd01d2f540e, type: 2}
-    - target: {fileID: 3678365204848804923, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5235324584880420433, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -465,44 +409,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5815051324593562238, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6168261987690112557, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
       propertyPath: m_Name
       value: GameView
       objectReference: {fileID: 0}
-    - target: {fileID: 7286801009165398170, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+    - target: {fileID: 6928910924828185374, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575337726728216230, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575337726728216230, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575337726728216230, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575337726728216230, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: jumpButton.m_Reference
-      value: 
-      objectReference: {fileID: -6092244541085388656, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    - target: {fileID: 8575337726728216230, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: jumpButton.m_UseReference
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8575337726728216230, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: jumpButton.m_Action.m_Name
-      value: Jump Button
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3589154059436893365, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+    - {fileID: 8849559900332589542, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
