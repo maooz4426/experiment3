@@ -20,6 +20,7 @@ public class GunController : MonoBehaviour
 
     private void Update()
     {
+        gunTipPosition = gunTip.transform.position;
         Shot();
     }
 
