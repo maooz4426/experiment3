@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5963835426675028485, guid: 28b2ea85416fe4343ab712fe30e9edf2, type: 3}
   gunTip: {fileID: 2100167873795403792}
+  hit: 10
+  power: 1000
 --- !u!1 &2100167873795403792
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 2100167873795403792}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0241, z: 0.0427}
+  m_LocalPosition: {x: 0.0061, y: 0.0241, z: 0.0427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

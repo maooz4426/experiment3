@@ -5,17 +5,22 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     [Header("GunComponent")]
-    //’e‚Ìprefab
-    [SerializeField] private GameObject bullet;
-    //eŒû
+    //ï¿½eï¿½ï¿½prefab
+    [SerializeField]
+    private GameObject bullet;
+
+    //ï¿½eï¿½ï¿½
     [SerializeField] private GameObject gunTip;
-    //eŒû‚Ìposition”cˆ¬
+
+    //ï¿½eï¿½ï¿½ï¿½ï¿½positionï¿½cï¿½ï¿½
     private Vector3 gunTipPosition;
     private HitController hitController;
     private EnemyController enemyController;
     [SerializeField] private float hit = 10f;
+    [SerializeField] private float power = 10f;
 
-    private void Awake()
+
+private void Awake()
     {
         gunTipPosition = gunTip.transform.position;
         hitController = bullet.GetComponent<HitController>();
@@ -31,19 +36,20 @@ public class GunController : MonoBehaviour
 
     private void Shot()
     {
-        //‰E‚ÌƒgƒŠƒK[‰Ÿ‚³‚ê‚½‚ç
+        //ï¿½Eï¿½Ìƒgï¿½ï¿½ï¿½Kï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             Debug.Log("shot");
             
-            //’e‚ÌƒCƒ“ƒXƒ^ƒ“ƒXì¬
+            //ï¿½eï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ì¬
             GameObject bulletInstance = Instantiate(bullet,gunTipPosition,Quaternion.identity);
 
             //Debug.Log(bulletInstance.transform.position);
             //Debug.Log(gunTipPosition);
 
-            //¨‚¢‚ğ‚Â‚¯‚é
-            bulletInstance.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 50));
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½
+            bulletInstance.GetComponent<Rigidbody>().AddForce(gunTip.transform.forward*power);
+            Debug.Log(gunTip.transform.forward);
         }
     }
 
