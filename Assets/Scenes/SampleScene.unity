@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.21111889, g: 0.05814965, b: 0.036026325, a: 1}
+  m_IndirectSpecularColor: {r: 0.17492186, g: 0.04681235, b: 0.02992402, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -393,17 +393,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 627550219879923283, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 498
+    - target: {fileID: 1109746731340274289, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 627550219879923283, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 497
+    - target: {fileID: 2483950392887354518, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: EnemyName
+      value: EnemyTest
       objectReference: {fileID: 0}
-    - target: {fileID: 4623029820178249921, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_Layer
-      value: 3
+    - target: {fileID: 2483950392887354518, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: PlayerName
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483950392887354518, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: targetName
+      value: EnemyTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076566091790152253, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121089169745064273, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5235324584880420433, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
       propertyPath: m_LocalPosition.x
@@ -449,8 +461,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameView
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6381397045265919770, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
