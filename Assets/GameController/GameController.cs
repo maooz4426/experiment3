@@ -5,14 +5,18 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
-    [Tooltip("playerprefab‚Ì–¼‘O‚ð“ü—Í")]
+    [Tooltip("playerprefabï¿½Ì–ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private string PlayerName;
     [SerializeField] private string EnemyName;
-    [Header("PlayerParameter")]
-    [SerializeField] private GameObject player;
 
-    [Header("EnemyParameter")]
-    [SerializeField] private GameObject enemy;
+    private GameObject player;
+
+    private GameObject enemy;
+    // [Header("PlayerParameter")]
+    // [SerializeField] private GameObject player;
+    //
+    // [Header("EnemyParameter")]
+    // [SerializeField] private GameObject enemy;
 
     [Header("WeaponParameter")]
     [SerializeField] private GameObject bullet;
@@ -28,6 +32,8 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.Find(PlayerName);
+        enemy = GameObject.Find(EnemyName);
         playerHp = player.GetComponent<PlayerController>().GetHp();
         enemyHp = enemy.GetComponent<EnemyController>().GetHp();
 

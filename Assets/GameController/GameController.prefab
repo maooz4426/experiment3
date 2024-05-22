@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be727cd446f55ed488755a67731b2eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  bullet: {fileID: 0}
+  PlayerName: Player
+  EnemyName: EnemyTest
+  player: {fileID: 625810067784598059, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+  enemy: {fileID: 3010313310925043365, guid: ce74ae4759761493689c80af096d37f3, type: 3}
+  bullet: {fileID: 5963835426675028485, guid: 28b2ea85416fe4343ab712fe30e9edf2, type: 3}
   bulletDamage: 10
-  sord: {fileID: 0}
+  sord: {fileID: 5755724614809030781, guid: b49337e35cd184a49894dfc64de260a7, type: 3}
   sordDamage: 10

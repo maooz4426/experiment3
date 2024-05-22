@@ -13,6 +13,7 @@ public class RigidMove : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float radius = 0.3f;
     private RaycastHit hit;
+    [SerializeField] private GameObject cameraRig;
 
     private void Awake()
     {
@@ -24,9 +25,14 @@ public class RigidMove : MonoBehaviour
     {
         Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) ;
 
-        Vector3 move = new Vector3(input.x, 0, input.y);
+        Vector3 forward = cameraRig.transform.forward;
+        forward.Normalize();
+        Vector3 right = cameraRig.transform.right;
+        right.Normalize();
 
-        rb.velocity += move  *0.5f;
+        Vector3 move = (forward * input.y + right * input.x) * 0.5f;
+        
+        rb.velocity +=move;
        // print(rb.velocity);
 
         
