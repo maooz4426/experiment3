@@ -708,6 +708,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4049874507702843105}
     m_Modifications:
+    - target: {fileID: 1430019514630194261, guid: 9dd325c5f5dda784b858938bc25a3bb6, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 600319934707360246, guid: e4435914cdd3bd24888289eda9caa873, type: 3}
+    - target: {fileID: 1430019514630194261, guid: 9dd325c5f5dda784b858938bc25a3bb6, type: 3}
+      propertyPath: sord
+      value: 
+      objectReference: {fileID: 5755724614809030781, guid: b49337e35cd184a49894dfc64de260a7, type: 3}
+    - target: {fileID: 1430019514630194261, guid: 9dd325c5f5dda784b858938bc25a3bb6, type: 3}
+      propertyPath: rightController
+      value: 
+      objectReference: {fileID: 1845796032890818977, guid: 40aca976679450149821c2c1cce613d2, type: 3}
     - target: {fileID: 7707504755346046735, guid: 9dd325c5f5dda784b858938bc25a3bb6, type: 3}
       propertyPath: m_Name
       value: RightWeaponController
