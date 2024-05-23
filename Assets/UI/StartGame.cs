@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement; //シーンの管理をします
 
 public class changeScene : MonoBehaviour
 {
-    public void change_button(){
-        
+    [SerializeField] public GameObject titleView;
+    [SerializeField] public GameObject gameView;
+
+    private void FixedUpdate()
+    {
+        if (OVRInput.GetDown(OVRInput.RawButton.B))
+        {
+            titleView.SetActive(false);
+            gameView.SetActive(true);
+        }
     }
 }

@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 3396643709306029156}
   - component: {fileID: 1090479828319028229}
   - component: {fileID: 7265119427369789498}
-  - component: {fileID: 2267145216321625502}
+  - component: {fileID: 7318635756408076116}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -274,7 +274,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 210, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3396643709306029156
 CanvasRenderer:
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2267145216321625502
+--- !u!114 &7318635756408076116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -370,6 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfe65b7db0ba4100baaa7de2f472aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleView: {fileID: 7060244621229437914}
+  gameView: {fileID: 6168261987690112557, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
 --- !u!1 &1646887048747648127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: press "B" to start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
