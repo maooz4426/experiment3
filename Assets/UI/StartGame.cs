@@ -3,9 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; //シーンの管理をします
 
-public class changeScene : MonoBehaviour
+public class StartGame : MonoBehaviour
 {
-    public void change_button(){
+    [SerializeField] private GameObject titleView;
+    [SerializeField] private GameObject gameView;
+
+    private void Update()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            Instantiate(gameView);
+            Destroy(titleView);
+        }
         
+    }
+    public void OnClick()
+    {
+        Instantiate(gameView);
+        Destroy(titleView);
     }
 }
