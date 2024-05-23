@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
+    [SerializeField] private string enemy;
     public GameObject player; // 追いかけられる方(プレイヤー(カメラ))
     public GameObject mya; // 追いかける方(ミャクミャク)
     public float enemySpeed = 20f; // 敵の移動速度
@@ -13,13 +14,18 @@ public class EnemyMove : MonoBehaviour
     void Start()
     {
         //プレイヤーオブジェクトを見つける
-        player = GameObject.Find("Main Camera");
+        player = GameObject.Find("Player");
         //myaはenemyである
-        mya = GameObject.Find("myakumyaku_wakka");
+        mya = GameObject.Find(enemy);
+        
+        // オブジェクトのローカル回転を調整
+        transform.rotation = Quaternion.Euler(90, 0, 0);
     }
         
     void Update()
     {
+       
+        
         if (player == null)
             return; // プレイヤーオブジェクトがない場合は何もしない
 
@@ -31,9 +37,9 @@ public class EnemyMove : MonoBehaviour
         {
             // カメラの少し下に向かう位置を計算
             Vector3 targetPosition = player.transform.position - player.transform.up * offsetDistance;
-
-            // 敵キャラクターを目標位置に向けて移動
-            transform.LookAt(targetPosition);
+            
+            
+            transform.LookAt(targetPosition, Vector3.back);
             transform.position += transform.forward * enemySpeed * Time.deltaTime;
         }   
     }
