@@ -52,6 +52,7 @@ public class DebugDisplay : MonoBehaviour
         builder.Append(Environment.NewLine);
 
         text.text += builder.ToString();
+        text.color = Color.white;
         //text.text += logString + "\n";
         AdjustText(text);
         //Debug.Log("Debug:" + logString);

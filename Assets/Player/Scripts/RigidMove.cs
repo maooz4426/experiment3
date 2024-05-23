@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class RigidMove : MonoBehaviour
 {
     private Rigidbody rb;
+    [Header("JumpParameter")]
+    [SerializeField] private float jumpPower = 5f;
+    [SerializeField] private float groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float radius = 0.3f;
+    private RaycastHit hit;
+    [SerializeField] private GameObject cameraRig;
 
     private void Awake()
     {
@@ -16,17 +25,34 @@ public class RigidMove : MonoBehaviour
     {
         Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) ;
 
-        Vector3 move = new Vector3(input.x, 0, input.y);
+        Vector3 forward = cameraRig.transform.forward;
+        forward.Normalize();
+        Vector3 right = cameraRig.transform.right;
+        right.Normalize();
 
-        rb.velocity += move  *0.5f;
-        //Debug.Log(rb.velocity);
+        Vector3 move = (forward * input.y + right * input.x) * 0.5f;
+        
+        rb.velocity +=move;
+       // print(rb.velocity);
+
+        
 
         if (OVRInput.GetDown(OVRInput.RawButton.A))
         {
-            rb.AddForce(new Vector3 (0,5,0),ForceMode.Impulse);
+            if (IsCheckGround())
+            {
+                rb.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
 
-            Debug.Log("jump");
+                print("jump");
+            }
         }
         
+    }
+
+    private bool IsCheckGround()
+    {
+        bool grounded = Physics.SphereCast(this.transform.position, radius, Vector3.down, out hit, groundCheckDistance, groundLayer);
+        print(grounded);
+        return grounded;
     }
 }

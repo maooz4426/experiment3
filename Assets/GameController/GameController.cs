@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class GameController : MonoBehaviour
+{
+    [Tooltip("playerprefab�̖��O�����")]
+    [SerializeField] private string PlayerName;
+    [SerializeField] private string EnemyName;
+
+    private GameObject player;
+
+    private GameObject enemy;
+    // [Header("PlayerParameter")]
+    // [SerializeField] private GameObject player;
+    //
+    // [Header("EnemyParameter")]
+    // [SerializeField] private GameObject enemy;
+
+    [Header("WeaponParameter")]
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private float bulletDamage = 10f;
+    private HitController bulletHitController;
+    [SerializeField] private GameObject sord;
+    [SerializeField] private float sordDamage = 10f;
+    private HitController sordHitContorller;
+
+
+    private float playerHp;
+    private float enemyHp;
+
+    private void Awake()
+    {
+        player = GameObject.Find(PlayerName);
+        enemy = GameObject.Find(EnemyName);
+        playerHp = player.GetComponent<PlayerController>().GetHp();
+        enemyHp = enemy.GetComponent<EnemyController>().GetHp();
+
+        bulletHitController = bullet.GetComponent<HitController>();
+        bulletHitController.SetDamage(bulletDamage);
+        bulletHitController.SetTarget(EnemyName);
+
+        sordHitContorller= sord.GetComponent<HitController>();
+        sordHitContorller.SetDamage(sordDamage);
+        sordHitContorller.SetTarget(EnemyName);
+    }
+
+    private void Update()
+    {
+        playerHp = player.GetComponent<PlayerController>().GetHp();
+        enemyHp = enemy.GetComponent<EnemyController>().GetHp();
+    }
+}
