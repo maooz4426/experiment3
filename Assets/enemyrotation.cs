@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyrotation : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float enemyrotationSpeed = 200f; // 回転速度
+    public float enemyrotationSpeed = 250f; // 回転速度
     void Start()
     {
         
@@ -22,12 +22,12 @@ public class enemyrotation : MonoBehaviour
         // 1/400の確率で速度を上げる
         if (Random.Range(0, 400) == 1)
         {
-            enemyrotationSpeed += 45; // 25ずつ増やしていく
+            enemyrotationSpeed += 50; // 50ずつ増やしていく
         }
-        // 1/600の確率で速度を下げる
-        if (Random.Range(0, 600) == 2)
+        // 1/400の確率で速度を下げる
+        if (Random.Range(0, 400) == 2)
         {
-            enemyrotationSpeed -= 10; // 25ずつ減らしていく
+            enemyrotationSpeed -= 50; // 50ずつ減らしていく
         }
         transform.Rotate(Vector3.up, enemyrotationSpeed * Time.deltaTime);
     }
