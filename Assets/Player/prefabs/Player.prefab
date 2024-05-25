@@ -76,10 +76,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 5
-  groundCheckDistance: 0.2
+  groundCheckDistance: 2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   radius: 0.3
   cameraRig: {fileID: 4049874507703213845}
 --- !u!136 &3012250033305217989
