@@ -15,6 +15,8 @@ public class RightWeaponController : MonoBehaviour
     [SerializeField] private GameObject sord;
     //銃のprefab
     [SerializeField] private GameObject gun;
+    //icepickのprefab
+    [SerializeField] private GameObject icePick;
     //装備してるweapon
     private GameObject currentWeapon;
     //右コントローラーの位置
@@ -30,7 +32,7 @@ public class RightWeaponController : MonoBehaviour
         weapons.Add(rightController);
         weapons.Add(sord);
         weapons.Add(gun);
-
+        weapons.Add (icePick);
         parent = this.transform;
         //初めは右コントローラーを表示
         currentWeapon = Instantiate(rightController, parent);
@@ -38,7 +40,24 @@ public class RightWeaponController : MonoBehaviour
 
     private void Update()
     {
-        ChangeWeapon();
+        if (CheckView())
+        {
+            ChangeWeapon();
+        }
+    }
+
+    //Viewがgameviewだったら武器変更行えるように
+    private bool CheckView()
+    {
+        GameObject Gameview = GameObject.Find("GameView");
+        if (Gameview != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void ChangeWeapon()
@@ -49,29 +68,14 @@ public class RightWeaponController : MonoBehaviour
         {
             Debug.Log(weaponCnt);
             changeable = false;
-            if(weaponCnt == 0)
-            {
-                //右コントローラーを削除
-                Destroy(currentWeapon);
-                //剣を生成
-                currentWeapon = Instantiate(sord, parent);
-                Debug.Log("change");
-                weaponCnt++;
-            }
-            else if(weaponCnt == 1)
-            {
-                //剣を削除
-                Destroy(currentWeapon);
-                //コントローラーを生成
-                currentWeapon = Instantiate(rightController, parent);
-                Debug.Log("change");
-                weaponCnt++;
-            }else if(weaponCnt == 2)
-            {
-                Destroy(currentWeapon);
-                currentWeapon = Instantiate(gun, parent);
-                weaponCnt++;
-            }
+         
+            //右コントローラーを削除
+            Destroy(currentWeapon);
+            //剣を生成
+            currentWeapon = Instantiate(weapons[weaponCnt], parent);
+            Debug.Log("change");
+            weaponCnt++;
+          
 
         }else if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
         {

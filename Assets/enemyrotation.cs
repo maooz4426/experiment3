@@ -30,5 +30,6 @@ public class enemyrotation : MonoBehaviour
             enemyrotationSpeed -= 50; // 50ずつ減らしていく
         }
         transform.Rotate(Vector3.up, enemyrotationSpeed * Time.deltaTime);
+        
     }
 }

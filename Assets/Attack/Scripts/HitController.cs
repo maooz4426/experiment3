@@ -11,14 +11,15 @@ public class HitController : MonoBehaviour
     private bool hitcheck = false;
     private bool targetEnemy;
 
-    private void Awake()
+    private void Start()
     {
-        //enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
+        enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
         SetController();
     }
 
     private void OnTriggerEnter(Collider col)
     {
+
         if(col.gameObject.tag == "Enemy")
         {
             enemyController.DecreaseHp(hitDamage);
