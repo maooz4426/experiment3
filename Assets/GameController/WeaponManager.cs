@@ -12,11 +12,7 @@ public class WeaponManager : MonoBehaviour
     private GameObject player;
 
     private GameObject enemy;
-    // [Header("PlayerParameter")]
-    // [SerializeField] private GameObject player;
-    //
-    // [Header("EnemyParameter")]
-    // [SerializeField] private GameObject enemy;
+
 
     [Header("WeaponParameter")]
     [SerializeField] private GameObject bullet;
