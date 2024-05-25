@@ -12,8 +12,10 @@ public class StartGame : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
-            Instantiate(gameView);
-            Destroy(titleView);
+            //Instantiate(gameView);
+            //Destroy(titleView);
+            titleView.SetActive(false);
+            gameView.SetActive(true);
         }
         
     }
