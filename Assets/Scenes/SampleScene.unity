@@ -938,10 +938,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameView
       objectReference: {fileID: 0}
-    - target: {fileID: 6168261987690112557, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1093,18 +1089,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3415688977485961488, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
-      propertyPath: gun
-      value: 
-      objectReference: {fileID: 5477992161734243889, guid: 8017050ae33620c4686600aa1c903239, type: 3}
-    - target: {fileID: 3415688977485961488, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
-      propertyPath: sord
-      value: 
-      objectReference: {fileID: 80853783152003724, guid: cbf46442b460f41418ac0c828e6e7e1e, type: 3}
-    - target: {fileID: 3415688977485961488, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
-      propertyPath: icePick
-      value: 
-      objectReference: {fileID: 2290679164195909020, guid: 36cbd69f31ce2a54ea5553dfb86a7a98, type: 3}
     - target: {fileID: 5812428821513854470, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.95
