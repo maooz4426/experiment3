@@ -11,7 +11,7 @@ public class HitController : MonoBehaviour
     private bool hitcheck = false;
     private bool targetEnemy;
 
-    private void Awake()
+    private void Start()
     {
         enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
         SetController();

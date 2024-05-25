@@ -108,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5235324584880420433
 Transform:
   m_ObjectHideFlags: 0
@@ -148,22 +148,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5235324584880420433}
     m_Modifications:
-    - target: {fileID: 2837903287287128662, guid: e35d516d4b7271d4c92fef845468beaa, type: 3}
-      propertyPath: sord
-      value: 
-      objectReference: {fileID: 5755724614809030781, guid: b49337e35cd184a49894dfc64de260a7, type: 3}
-    - target: {fileID: 2837903287287128662, guid: e35d516d4b7271d4c92fef845468beaa, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 5963835426675028485, guid: 28b2ea85416fe4343ab712fe30e9edf2, type: 3}
-    - target: {fileID: 2837903287287128662, guid: e35d516d4b7271d4c92fef845468beaa, type: 3}
-      propertyPath: EnemyName
-      value: myakumyaku_wakka
-      objectReference: {fileID: 0}
-    - target: {fileID: 2837903287287128662, guid: e35d516d4b7271d4c92fef845468beaa, type: 3}
-      propertyPath: bulletDamage
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6867440291023389268, guid: e35d516d4b7271d4c92fef845468beaa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 500
@@ -206,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9178206573446647393, guid: e35d516d4b7271d4c92fef845468beaa, type: 3}
       propertyPath: m_Name
-      value: GameController
+      value: WeaponManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

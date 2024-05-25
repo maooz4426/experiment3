@@ -20,7 +20,7 @@ public class GunController : MonoBehaviour
     [SerializeField] private float power = 10f;
 
 
-private void Awake()
+private void Start()
     {
         gunTipPosition = gunTip.transform.position;
         hitController = bullet.GetComponent<HitController>();
@@ -50,6 +50,11 @@ private void Awake()
             //����������
             bulletInstance.GetComponent<Rigidbody>().AddForce(gunTip.transform.forward*power);
             Debug.Log(gunTip.transform.forward);
+
+            if(bulletInstance.GetComponent<HitController>().CheckHit()==true)
+            {
+                Destroy(bulletInstance);
+            }         
         }
     }
 

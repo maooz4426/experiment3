@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameController : MonoBehaviour
+public class WeaponManager : MonoBehaviour
 {
     [Tooltip("playerprefab�̖��O�����")]
     [SerializeField] private string PlayerName;
@@ -25,7 +25,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject sord;
     [SerializeField] private float sordDamage = 10f;
     private HitController sordHitContorller;
-
+    [SerializeField] private GameObject icepick;
+    private HitController pickHitController;
 
     private float playerHp;
     private float enemyHp;
@@ -44,6 +45,10 @@ public class GameController : MonoBehaviour
         sordHitContorller= sord.GetComponent<HitController>();
         sordHitContorller.SetDamage(sordDamage);
         sordHitContorller.SetTarget(EnemyName);
+
+        pickHitController = icepick.GetComponent<HitController>();
+        pickHitController.SetTarget(EnemyName);
+
     }
 
     private void Update()
