@@ -19,7 +19,7 @@ public class EnemyMove : MonoBehaviour
         mya = GameObject.Find(enemy);
         
         // オブジェクトのローカル回転を調整
-        transform.rotation = Quaternion.Euler(90, 0, 0);
+        //transform.rotation = Quaternion.Euler(90, 0, 0);
     }
         
     void Update()

@@ -13,12 +13,13 @@ public class HitController : MonoBehaviour
 
     private void Awake()
     {
-        //enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
+        enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
         SetController();
     }
 
     private void OnTriggerEnter(Collider col)
     {
+
         if(col.gameObject.tag == "Enemy")
         {
             enemyController.DecreaseHp(hitDamage);
