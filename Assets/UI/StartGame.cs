@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
-    [SerializeField] private GameObject titleView;
-    [SerializeField] private GameObject gameView;
+    [SerializeField] private GameObject thisView;
+    [SerializeField] private GameObject nextView;
 
     private void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.Two))
+        if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKey(KeyCode.Return))
         {
-            Instantiate(gameView);
-            Destroy(titleView);
+            // 条件式内のInput.GetKey(KeyCode.Return) は、開発中の動作確認のため
+            Instantiate(nextView);
+            Destroy(thisView);
         }
         
     }
     public void OnClick()
     {
-        Instantiate(gameView);
-        Destroy(titleView);
+        Instantiate(nextView);
+        Destroy(thisView);
     }
 }

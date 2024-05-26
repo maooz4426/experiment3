@@ -402,8 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfe65b7db0ba4100baaa7de2f472aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleView: {fileID: 0}
-  gameView: {fileID: 0}
+  thisView: {fileID: 7060244621229437914}
+  nextView: {fileID: 1053506662768544629, guid: bfdb61202c59c41c5bea5a1d36382c3e, type: 3}
 --- !u!1 &1646887048747648127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "B" to start
+  m_text: START GAME [A]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
