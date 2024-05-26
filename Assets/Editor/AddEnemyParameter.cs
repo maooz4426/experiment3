@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class AddMeshCollider : MonoBehaviour
+public class AddEnemyParameter : MonoBehaviour
 {
-    [MenuItem("Tools/Add Mesh Colliders to Children")]
+    [MenuItem("Tools/Add EnemyParameter to Children")]
     static void AddColliders()
     {
         // 選択したオブジェクトを取得

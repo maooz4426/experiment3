@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameViewManager : MonoBehaviour
 {
     private GameObject player;
- 
-   
+
+    [Header("FieldsParameter")]
     [SerializeField] private Terrain terrain; //GameObject‚É‚µ‚Ä‚Í‚¾‚ß
     private Terrain terrainInstance;
     private TerrainData terrainData;

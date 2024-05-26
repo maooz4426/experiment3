@@ -895,9 +895,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 635184426923723930, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: enemy1
-      value: 
-      objectReference: {fileID: 548202348075546372, guid: dd568cda987c24f39a5da42bf6a0af7f, type: 3}
+      propertyPath: yAdd
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5235324584880420433, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -942,13 +942,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameView
       objectReference: {fileID: 0}
-    - target: {fileID: 6666416860245992510, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: terrain
-      value: 
-      objectReference: {fileID: 6736726684415412964, guid: bca803020ac7f91428eeabf7a0eef84e, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6852069566671865, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
