@@ -40,7 +40,7 @@ private void Start()
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             Debug.Log("shot");
-            
+
             //�e�̃C���X�^���X�쐬
             GameObject bulletInstance = Instantiate(bullet,gunTipPosition,Quaternion.identity);
 
@@ -51,11 +51,11 @@ private void Start()
             bulletInstance.GetComponent<Rigidbody>().AddForce(gunTip.transform.forward*power);
             Debug.Log(gunTip.transform.forward);
 
-            if(bulletInstance.GetComponent<HitController>().CheckHit()==true)
-            {
-                Destroy(bulletInstance);
-            }         
+                  
         }
+
+     
+
     }
 
     private void bulletHit()

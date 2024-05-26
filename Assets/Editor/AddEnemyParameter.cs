@@ -8,23 +8,23 @@ public class AddEnemyParameter : MonoBehaviour
     [MenuItem("Tools/Add EnemyParameter to Children")]
     static void AddColliders()
     {
-        // ‘I‘ğ‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğæ“¾
+        // ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½æ“¾
         GameObject parentObject = Selection.activeGameObject;
 
-        //‘I‘ğˆ‚Ä‚È‚©‚Á‚½‚çI—¹
+        //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ä‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
         if (parentObject == null)
         {
             Debug.LogWarning("No game object selected.");
             return;
         }
 
-        // eƒIƒuƒWƒFƒNƒg‚ÌqƒIƒuƒWƒFƒNƒg‚É‚ ‚éMeshFileter‚ğæ“¾
+        // ï¿½eï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìqï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½É‚ï¿½ï¿½ï¿½MeshFileterï¿½ï¿½ï¿½æ“¾
         MeshFilter[] meshFilters = parentObject.GetComponentsInChildren<MeshFilter>();
 
-        // ŠeqƒIƒuƒWƒFƒNƒg‚ÉMeshCollider‚ğ’Ç‰Á
+        // ï¿½eï¿½qï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½MeshColliderï¿½ï¿½Ç‰ï¿½
         foreach (MeshFilter meshFilter in meshFilters)
         {
-            meshFilter.gameObject.tag = "Enemy";
+            meshFilter.gameObject.tag = "EnemyBody";
                MeshCollider meshCollider;
            
                meshCollider = meshFilter.gameObject.GetComponent<MeshCollider>();
@@ -36,7 +36,19 @@ public class AddEnemyParameter : MonoBehaviour
                 }
 
 
-                meshCollider.sharedMesh = meshFilter.sharedMesh;//meshfilter‚É‚Â‚¢‚Ä‚¢‚éƒƒbƒVƒ…‚ğmeshcollider‚ğ•t‚¯‚Ä‚¢‚Ü‚·B
+            Rigidbody rigid = meshFilter.gameObject.GetComponent<Rigidbody>();
+
+            //if (rigid == null)
+            //{
+            //    rigid = meshFilter.gameObject.AddComponent<Rigidbody>();
+            //}
+            if(rigid != null)
+            {
+                DestroyImmediate(rigid);
+            }
+            
+            rigid.useGravity = false;
+            meshCollider.sharedMesh = meshFilter.sharedMesh;//meshfilterï¿½É‚Â‚ï¿½ï¿½Ä‚ï¿½ï¿½éƒï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½meshcolliderï¿½ï¿½tï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
                 meshCollider.convex = true;
                 meshCollider.isTrigger = true;
                 

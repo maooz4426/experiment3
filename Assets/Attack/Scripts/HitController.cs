@@ -7,32 +7,39 @@ public class HitController : MonoBehaviour
     private PlayerController playerController;
     private EnemyController enemyController;
     [SerializeField] private float hitDamage = 10f;
-    [SerializeField] private string targetName = "Enemy";
+    [SerializeField] private string targetTagName = "Enemy";
     private bool hitcheck = false;
     private bool targetEnemy;
 
     private void Start()
     {
-        enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
-        SetController();
+        enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
+        //SetController();
     }
 
     private void OnTriggerEnter(Collider col)
     {
 
-        if(col.gameObject.tag == "Enemy")
+        if(col.gameObject.tag == "EnemyBody")
         {
+            
             enemyController.DecreaseHp(hitDamage);
-            //Debug.Log("hit");
+            Destroy(this.gameObject);
             hitcheck = true;
+       
+            //Debug.Log("hit");
+            //hitcheck = true;
             //ChangeHitChecked();
             Debug.Log(enemyController.GetHp());
+            
         }else if(col.gameObject.tag == "Player")
         {
             playerController.DecreaseHp(hitDamage);
             Debug.Log(playerController.GetHp());
         }
     }
+
+    
 
     public bool CheckHit()
     {
@@ -55,20 +62,20 @@ public class HitController : MonoBehaviour
 
     public void SetTarget(string name)
     {
-        targetName = name;
+        targetTagName = name;
     }
 
-    public void SetController()
-    {
-        string target = GameObject.Find(targetName).tag;
-        if(target == "Player")
-        {
-            playerController = GameObject.Find(targetName).GetComponent<PlayerController>();
-            targetEnemy = false;
-        }else if(target == "Enemy")
-        {
-            enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
-            targetEnemy = true;
-        }
-    }
+    //public void SetController()
+    //{
+    //    string target = GameObject.FindWithTag(targetTagName);
+    //    if(target == "Player")
+    //    {
+    //        playerController = GameObject.Find(targetTagName).GetComponent<PlayerController>();
+    //        targetEnemy = false;
+    //    }else if(target == "Enemy")
+    //    {
+    //        enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
+    //        targetEnemy = true;
+    //    }
+    //}
 }

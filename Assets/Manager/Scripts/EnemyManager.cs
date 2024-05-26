@@ -20,12 +20,18 @@ public class EnemyManager : MonoBehaviour
     private GameViewManager gameViewManager;
     
 
-    private void Start()
+    private void Awake()
     {
         gameViewManager = GameObject.Find("GameView").GetComponent<GameViewManager>();
         firstEnemyPosition = new Vector3 (gameViewManager.GetCenter().x + xAdd, yAdd, gameViewManager.GetCenter().z+zAdd);
-
-        enemy1Instance = Instantiate(enemy1,firstEnemyPosition,Quaternion.identity);
-        
+        enemy1Instance = Instantiate(enemy1, firstEnemyPosition, Quaternion.identity);
+        enemy1Instance.GetComponent<CharacterController>().enabled = false;
     }
+
+    private void Start()
+    {
+        enemy1Instance.GetComponent<CharacterController>().enabled = true;
+    }
+
+
 }

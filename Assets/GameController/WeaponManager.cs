@@ -27,23 +27,23 @@ public class WeaponManager : MonoBehaviour
     private float playerHp;
     private float enemyHp;
 
-    private void Awake()
+    private void Start()
     {
         player = GameObject.Find(PlayerName);
-        enemy = GameObject.Find(EnemyName);
+        enemy = GameObject.FindWithTag("Enemy");
         playerHp = player.GetComponent<PlayerController>().GetHp();
         enemyHp = enemy.GetComponent<EnemyController>().GetHp();
 
         bulletHitController = bullet.GetComponent<HitController>();
         bulletHitController.SetDamage(bulletDamage);
-        bulletHitController.SetTarget(EnemyName);
+        //bulletHitController.SetTarget(EnemyName);
 
         sordHitContorller= sord.GetComponent<HitController>();
         sordHitContorller.SetDamage(sordDamage);
-        sordHitContorller.SetTarget(EnemyName);
+        //sordHitContorller.SetTarget(EnemyName);
 
         pickHitController = icepick.GetComponent<HitController>();
-        pickHitController.SetTarget(EnemyName);
+        //pickHitController.SetTarget(EnemyName);
 
     }
 

@@ -13,7 +13,7 @@ public class GameViewManager : MonoBehaviour
     private Vector3 terrainSize;
 
 
-    void Start()
+    void Awake()
     {
         player = GameObject.Find("Player");
         player.GetComponent<Rigidbody>().useGravity = true;
