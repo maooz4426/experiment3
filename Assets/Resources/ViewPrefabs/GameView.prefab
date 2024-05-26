@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownSeconds: 30
-  timeLimitText: {fileID: 0}
+  timeLimitText: {fileID: 7143476315128788705}
 --- !u!1 &1591028882264910647
 GameObject:
   m_ObjectHideFlags: 0
