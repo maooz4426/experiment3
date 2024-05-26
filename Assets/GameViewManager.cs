@@ -5,15 +5,15 @@ using UnityEngine;
 public class GameViewManager : MonoBehaviour
 {
     private GameObject player;
- 
-   
+
+    [Header("FieldsParameter")]
     [SerializeField] private Terrain terrain; //GameObject‚É‚µ‚Ä‚Í‚¾‚ß
     private Terrain terrainInstance;
     private TerrainData terrainData;
     private Vector3 terrainSize;
 
 
-    void Start()
+    void Awake()
     {
         player = GameObject.Find("Player");
         player.GetComponent<Rigidbody>().useGravity = true;

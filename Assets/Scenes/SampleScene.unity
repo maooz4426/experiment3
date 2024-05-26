@@ -894,10 +894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 635184426923723930, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: enemy1
+    - target: {fileID: 2483950392887354518, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+      propertyPath: bullet
       value: 
-      objectReference: {fileID: 548202348075546372, guid: dd568cda987c24f39a5da42bf6a0af7f, type: 3}
+      objectReference: {fileID: 8590465355722008155, guid: c1f60a43472071f4589b328a0d103c57, type: 3}
     - target: {fileID: 5235324584880420433, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -942,13 +942,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameView
       objectReference: {fileID: 0}
-    - target: {fileID: 6666416860245992510, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
-      propertyPath: terrain
-      value: 
-      objectReference: {fileID: 6736726684415412964, guid: bca803020ac7f91428eeabf7a0eef84e, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6852069566671865, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
@@ -1097,6 +1092,22 @@ PrefabInstance:
     - target: {fileID: 625810067784598059, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049874507703373039, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049874507703373039, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049874507703373039, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049874507703373039, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5812428821513854470, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
       propertyPath: m_LocalPosition.x

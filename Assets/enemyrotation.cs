@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class enemyrotation : MonoBehaviour
@@ -29,7 +30,8 @@ public class enemyrotation : MonoBehaviour
         {
             enemyrotationSpeed -= 50; // 50ずつ減らしていく
         }
-        transform.Rotate(Vector3.up, enemyrotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward , enemyrotationSpeed * Time.deltaTime);
         
+
     }
 }
