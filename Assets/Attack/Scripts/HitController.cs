@@ -27,10 +27,10 @@ public class HitController : MonoBehaviour
             Destroy(this.gameObject);
             hitcheck = true;
        
-            //Debug.Log("hit");
+            Debug.Log("hit");
             //hitcheck = true;
             //ChangeHitChecked();
-            Debug.Log(enemyController.GetHp());
+            //Debug.Log(enemyController.GetHp());
             
         }else if(col.gameObject.tag == "Player")
         {

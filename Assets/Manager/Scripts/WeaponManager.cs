@@ -52,4 +52,10 @@ public class WeaponManager : MonoBehaviour
         playerHp = player.GetComponent<PlayerController>().GetHp();
         enemyHp = enemy.GetComponent<EnemyController>().GetHp();
     }
+
+    public void ChangeTargetEnemy()
+    {
+        enemy = GameObject.FindWithTag("Enemy");
+        enemyHp = enemy.GetComponent<EnemyController>().GetHp();
+    }
 }

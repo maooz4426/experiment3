@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6666416860245992510}
   m_Layer: 0
   m_Name: GameView
-  m_TagString: Untagged
+  m_TagString: GameView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5235324584880420433
 Transform:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80d60ab3a6d8401bada97c970e05890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrain: {fileID: 6736726684415412964, guid: bca803020ac7f91428eeabf7a0eef84e, type: 3}
+  terrain: {fileID: 6028808593955059805, guid: fae844dc45ebc4f828595619dc76caba, type: 3}
 --- !u!1001 &367748954476480192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,18 +118,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5235324584880420433}
     m_Modifications:
-    - target: {fileID: 1363241500123955518, guid: edd35e71b19a6d24794f152eadd7f520, type: 3}
-      propertyPath: yAdd
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363241500123955518, guid: edd35e71b19a6d24794f152eadd7f520, type: 3}
-      propertyPath: zAdd
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363241500123955518, guid: edd35e71b19a6d24794f152eadd7f520, type: 3}
-      propertyPath: enemy1
-      value: 
-      objectReference: {fileID: 314042939338123806, guid: 0a068c4d631c6b84b8670c7cd70b2dd7, type: 3}
     - target: {fileID: 1556081100026299822, guid: edd35e71b19a6d24794f152eadd7f520, type: 3}
       propertyPath: m_Name
       value: EnemyManager

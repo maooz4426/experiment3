@@ -49,7 +49,7 @@ public class EnemyMove : MonoBehaviour
 
             //this.transform.LookAt(targetPosition);
             this.transform.rotation = Quaternion.LookRotation(targetPosition);
-            Debug.Log(characterController.isGrounded);
+            //Debug.Log(characterController.isGrounded);
             //transform.position += transform.forward * enemySpeed * Time.deltaTime;
             characterController.Move(targetPosition * Time.deltaTime * enemySpeed);
         }   

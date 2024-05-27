@@ -22,25 +22,33 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float zAdd = 10;
 
     private GameViewManager gameViewManager;
+
+    //敵を変更を適応させる
+    private WeaponManager weaponManager;
     
 
     private void Awake()
     {
-        gameViewManager = GameObject.Find("GameView").GetComponent<GameViewManager>();
-        firstEnemyPosition = new Vector3 (gameViewManager.GetCenter().x + xAdd, yAdd, gameViewManager.GetCenter().z+zAdd);
+        //gameViewManager = GameObject.Find("GameView").GetComponent<GameViewManager>();
+        gameViewManager = this.GetComponentInParent<GameViewManager>();
+        firstEnemyPosition = new Vector3(gameViewManager.GetCenter().x + xAdd, yAdd, gameViewManager.GetCenter().z + zAdd);
         enemy1Instance = Instantiate(enemy1, firstEnemyPosition, Quaternion.identity);
         enemy1Instance.GetComponent<CharacterController>().enabled = false;
     }
 
     private void Start()
     {
+        
         enemy1Instance.GetComponent<CharacterController>().enabled = true;
         currentEnemy = enemy1Instance;
         currentEnemyController = currentEnemy.GetComponent<EnemyController>();
+
+        weaponManager = GameObject.Find("WeaponManager").GetComponent<WeaponManager>();
     }
 
     private void Update()
     {
+        Debug.Log(currentEnemyController.GetHp());
         //hpが0以下になったら変更
         if (currentEnemyController.GetHp() <= 0)
         {
@@ -57,16 +65,24 @@ public class EnemyManager : MonoBehaviour
         {
                 
             case 1:
+                //敵入れ替えのためにやられた敵の位置を取得
                 currentPosition = currentEnemy.transform.position;
+                //現在の敵を削除
                 Destroy(currentEnemy);
+                //次の敵を生成
                 enemy2Instance = Instantiate(enemy2, currentPosition, Quaternion.identity);
+                //現在の敵を参照できるように
                 currentEnemy = enemy2Instance;
+                currentEnemyController = currentEnemy.GetComponent <EnemyController>();
+                //weaponmanagerに変更を適応
+                weaponManager.ChangeTargetEnemy();
                 break;
             case 2:
                 currentPosition = currentEnemy.transform.position;
                 Destroy(currentEnemy);
                 enemy3Instance = Instantiate(enemy3, currentPosition, Quaternion.identity);
                 currentEnemy = enemy3Instance;
+                weaponManager.ChangeTargetEnemy();
                 break;
             case 3:
                 
@@ -76,6 +92,8 @@ public class EnemyManager : MonoBehaviour
 
         }
     }
+
+    
     
 
 }
