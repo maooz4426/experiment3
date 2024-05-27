@@ -82,6 +82,7 @@ public class EnemyManager : MonoBehaviour
                 Destroy(currentEnemy);
                 enemy3Instance = Instantiate(enemy3, currentPosition, Quaternion.identity);
                 currentEnemy = enemy3Instance;
+                currentEnemyController = currentEnemy.GetComponent<EnemyController>();
                 weaponManager.ChangeTargetEnemy(enemy3Instance);
                 break;
             case 3:

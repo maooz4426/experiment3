@@ -18,6 +18,13 @@ public class HitController : MonoBehaviour
     private void Start()
     {
         enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
+
+        //レネだけはenemybody付けてるので参照の仕方を変える
+        if(enemyController == null)
+        {
+            enemyController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyController>();
+        }
+
         effectManger = GameObject.Find("EffectManager").GetComponent<EffectManger>();
         
         //SetController();
