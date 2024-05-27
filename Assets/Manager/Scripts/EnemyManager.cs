@@ -41,6 +41,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
+        //hpが0以下になったら変更
         if (currentEnemyController.GetHp() <= 0)
         {
             ChangeEnemy();
@@ -49,8 +50,9 @@ public class EnemyManager : MonoBehaviour
 
     private void ChangeEnemy()
     {
-        //hpが0以下になったら変更
+        
         Vector3 currentPosition;
+        //敵の個体番号でスイッチ
         switch (currentEnemyController.GetEnemyNum())
         {
                 
@@ -58,11 +60,18 @@ public class EnemyManager : MonoBehaviour
                 currentPosition = currentEnemy.transform.position;
                 Destroy(currentEnemy);
                 enemy2Instance = Instantiate(enemy2, currentPosition, Quaternion.identity);
+                currentEnemy = enemy2Instance;
                 break;
             case 2:
                 currentPosition = currentEnemy.transform.position;
                 Destroy(currentEnemy);
                 enemy3Instance = Instantiate(enemy3, currentPosition, Quaternion.identity);
+                currentEnemy = enemy3Instance;
+                break;
+            case 3:
+                
+                Destroy(currentEnemy);
+                
                 break;
 
         }

@@ -9,10 +9,26 @@ public class PlayerControllerEditor : Editor
     {
         if (target is PlayerController)
         {
-            GUILayout.Label("���̃X�N���v�g�̓L�����N�^�[�̐ݒ���s���܂��B");
+            GUILayout.Label("このコンポネントはキャラクターのステータス設定を行います。");
             
 
-            //�C���X�y�N�^�[�̕\��
+            //インスペクターの表示
+            DrawDefaultInspector();
+        }
+    }
+}
+
+[CustomEditor(typeof(RigidMove))]
+public class RigidMoveEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        if (target is RigidMove)
+        {
+            GUILayout.Label("このコンポネントはrigidbodyを使ったキャラクターの移動を行います。");
+            
+
+            //インスペクターの表示
             DrawDefaultInspector();
         }
     }
@@ -25,10 +41,43 @@ public class EnemyControllerEditor : Editor
     {
         if (target is EnemyController)
         {
-            GUILayout.Label("���̃X�N���v�g�͓G�̐ݒ���s���܂��B");
+            GUILayout.Label("このコンポネントは敵の設定を行います。");
            
 
-            //�C���X�y�N�^�[�̕\��
+            //インスペクターの表示
+            DrawDefaultInspector();
+        }
+    }
+}
+
+[CustomEditor(typeof(WeaponManager))]
+public class WeaponManagerEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        if (target is WeaponManager)
+        {
+            GUILayout.Label("このコンポネントは武器のステータス設定を行います。");
+           
+
+            //インスペクターの表示
+            DrawDefaultInspector();
+        }
+    }
+}
+
+
+[CustomEditor(typeof(RightWeaponController))]
+public class RightWeaponControllerEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        if (target is RightWeaponController)
+        {
+            GUILayout.Label("このコンポネントは右コントローラーの武器の装着を行います。");
+           
+
+            //インスペクターの表示
             DrawDefaultInspector();
         }
     }
