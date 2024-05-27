@@ -53,9 +53,10 @@ public class WeaponManager : MonoBehaviour
         enemyHp = enemy.GetComponent<EnemyController>().GetHp();
     }
 
-    public void ChangeTargetEnemy()
+    public void ChangeTargetEnemy(GameObject enemyNow)
     {
-        enemy = GameObject.FindWithTag("Enemy");
+        enemy = enemyNow;
         enemyHp = enemy.GetComponent<EnemyController>().GetHp();
+        Debug.Log("changeEnemy");
     }
 }

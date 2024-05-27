@@ -118,6 +118,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5235324584880420433}
     m_Modifications:
+    - target: {fileID: 1363241500123955518, guid: edd35e71b19a6d24794f152eadd7f520, type: 3}
+      propertyPath: enemy2
+      value: 
+      objectReference: {fileID: 5522131716758579321, guid: 72125860d0701bf40b2f9471fbd6c3db, type: 3}
     - target: {fileID: 1556081100026299822, guid: edd35e71b19a6d24794f152eadd7f520, type: 3}
       propertyPath: m_Name
       value: EnemyManager

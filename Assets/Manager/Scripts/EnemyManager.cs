@@ -75,14 +75,14 @@ public class EnemyManager : MonoBehaviour
                 currentEnemy = enemy2Instance;
                 currentEnemyController = currentEnemy.GetComponent <EnemyController>();
                 //weaponmanagerに変更を適応
-                weaponManager.ChangeTargetEnemy();
+                weaponManager.ChangeTargetEnemy(enemy2Instance);
                 break;
             case 2:
                 currentPosition = currentEnemy.transform.position;
                 Destroy(currentEnemy);
                 enemy3Instance = Instantiate(enemy3, currentPosition, Quaternion.identity);
                 currentEnemy = enemy3Instance;
-                weaponManager.ChangeTargetEnemy();
+                weaponManager.ChangeTargetEnemy(enemy3Instance);
                 break;
             case 3:
                 
