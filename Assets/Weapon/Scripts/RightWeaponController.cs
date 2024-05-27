@@ -49,9 +49,10 @@ public class RightWeaponController : MonoBehaviour
     //View‚ªgameview‚¾‚Á‚½‚ç•Ší•ÏXs‚¦‚é‚æ‚¤‚É
     private bool CheckView()
     {
-        GameObject Gameview = GameObject.Find("GameView");
+        GameObject Gameview = GameObject.FindWithTag("GameView");
         if (Gameview != null)
         {
+            //Debug.Log("gameviewok");
             return true;
         }
         else

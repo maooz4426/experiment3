@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: icepick_v1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8e9c56b25a11ea34c8631efa7a60caa1, type: 3}
+      propertyPath: m_TagString
+      value: weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81,7 +85,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitDamage: 10
-  targetName: Enemy
+  targetTagName: Enemy
+  effectManger: {fileID: 0}
 --- !u!64 &5588876675566260826
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  enemyNum: 1
 --- !u!143 &3222238569193178973
 CharacterController:
   m_ObjectHideFlags: 0

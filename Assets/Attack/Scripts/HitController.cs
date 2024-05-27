@@ -5,15 +5,36 @@ using UnityEngine;
 public class HitController : MonoBehaviour
 {
     private PlayerController playerController;
-    private EnemyController enemyController;
+    private EnemyParameterController enemyParameterController;
     [SerializeField] private float hitDamage = 10f;
     [SerializeField] private string targetTagName = "Enemy";
     private bool hitcheck = false;
     private bool targetEnemy;
+    //血しぶき
+    [SerializeField]private EffectManger effectManger;
+    //[SerializeField] private GameObject blood;
+    //[SerializeField] private float disapper = 3f;
 
     private void Start()
     {
-        enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
+        if (GameObject.FindWithTag(targetTagName))
+        {
+            enemyParameterController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyParameterController>();
+        }
+        else
+        {
+            //レネだけはenemybody付けてるので参照の仕方を変える
+            enemyParameterController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyParameterController>();
+        }
+        //enemyParameterController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyParameterController>();
+
+        //if(enemyParameterController == null)
+        //{
+        //    enemyParameterController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyParameterController>();
+        //}
+
+        effectManger = GameObject.Find("EffectManager").GetComponent<EffectManger>();
+        
         //SetController();
     }
 
@@ -22,15 +43,21 @@ public class HitController : MonoBehaviour
 
         if(col.gameObject.tag == "EnemyBody")
         {
-            
-            enemyController.DecreaseHp(hitDamage);
-            Destroy(this.gameObject);
+
+            enemyParameterController.DecreaseHp(hitDamage);
             hitcheck = true;
+            effectManger.OnBlood(this.transform.position);
+
+            Destroy(this.gameObject);
+            
+            //GameObject bloodInstance = Instantiate(blood,col.transform.position,Quaternion.identity);
+
+            //Destroy(bloodInstance, disapper);
        
-            //Debug.Log("hit");
+            Debug.Log("hit");
             //hitcheck = true;
             //ChangeHitChecked();
-            Debug.Log(enemyController.GetHp());
+            //Debug.Log(enemyController.GetHp());
             
         }else if(col.gameObject.tag == "Player")
         {

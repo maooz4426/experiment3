@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1556081100026299822
+--- !u!1 &4039748121817515430
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4358436390573441387}
-  - component: {fileID: 1363241500123955518}
+  - component: {fileID: 5138649287481926460}
+  - component: {fileID: 2668441068959159601}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: EffectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4358436390573441387
+--- !u!4 &5138649287481926460
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556081100026299822}
+  m_GameObject: {fileID: 4039748121817515430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06375906, y: -0.03272283, z: 0.0000072345138}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1363241500123955518
+--- !u!114 &2668441068959159601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556081100026299822}
+  m_GameObject: {fileID: 4039748121817515430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c20b0d5043e7a3c40be770650dfe0762, type: 3}
+  m_Script: {fileID: 11500000, guid: ccae7dd7919117e4f973dd8bf5f9d70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1: {fileID: 314042939338123806, guid: 0a068c4d631c6b84b8670c7cd70b2dd7, type: 3}
-  enemy2: {fileID: 5522131716758579321, guid: 72125860d0701bf40b2f9471fbd6c3db, type: 3}
-  enemy3: {fileID: 0}
-  xAdd: 0
-  yAdd: 10
-  zAdd: 10
+  blood: {fileID: 6514069688476230481, guid: 6d7ad6be441bf934eb1cb81afac9ca92, type: 3}
