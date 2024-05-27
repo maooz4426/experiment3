@@ -10,10 +10,16 @@ public class HitController : MonoBehaviour
     [SerializeField] private string targetTagName = "Enemy";
     private bool hitcheck = false;
     private bool targetEnemy;
+    //ŒŒ‚µ‚Ô‚«
+    [SerializeField]private EffectManger effectManger;
+    //[SerializeField] private GameObject blood;
+    //[SerializeField] private float disapper = 3f;
 
     private void Start()
     {
         enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
+        effectManger = GameObject.Find("EffectManager").GetComponent<EffectManger>();
+        
         //SetController();
     }
 
@@ -24,8 +30,14 @@ public class HitController : MonoBehaviour
         {
             
             enemyController.DecreaseHp(hitDamage);
-            Destroy(this.gameObject);
             hitcheck = true;
+            effectManger.OnBlood(this.transform.position);
+
+            Destroy(this.gameObject);
+            
+            //GameObject bloodInstance = Instantiate(blood,col.transform.position,Quaternion.identity);
+
+            //Destroy(bloodInstance, disapper);
        
             Debug.Log("hit");
             //hitcheck = true;
