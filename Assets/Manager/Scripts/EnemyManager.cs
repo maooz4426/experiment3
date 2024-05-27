@@ -11,6 +11,10 @@ public class EnemyManager : MonoBehaviour
     private GameObject enemy2Instance;
     private GameObject enemy3Instance;
 
+    //現在の敵
+    private GameObject currentEnemy;
+    private EnemyController currentEnemyController;
+
     [Header("FirstEnemyPositionParameter")]
     private Vector3 firstEnemyPosition;
     [SerializeField] private float xAdd = 0;
@@ -31,7 +35,39 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         enemy1Instance.GetComponent<CharacterController>().enabled = true;
+        currentEnemy = enemy1Instance;
+        currentEnemyController = currentEnemy.GetComponent<EnemyController>();
     }
 
+    private void Update()
+    {
+        if (currentEnemyController.GetHp() <= 0)
+        {
+            ChangeEnemy();
+        }
+    }
+
+    private void ChangeEnemy()
+    {
+        //hpが0以下になったら変更
+        Vector3 currentPosition;
+        switch (currentEnemyController.GetEnemyNum())
+        {
+                
+            case 1:
+                currentPosition = currentEnemy.transform.position;
+                Destroy(currentEnemy);
+                enemy2Instance = Instantiate(enemy2, currentPosition, Quaternion.identity);
+                break;
+            case 2:
+                currentPosition = currentEnemy.transform.position;
+                Destroy(currentEnemy);
+                enemy3Instance = Instantiate(enemy3, currentPosition, Quaternion.identity);
+                break;
+
+        }
+    }
+    
 
 }
+
