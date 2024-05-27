@@ -15,7 +15,7 @@ public class GunController : MonoBehaviour
     //�e����position�c��
     private Vector3 gunTipPosition;
     private HitController hitController;
-    private EnemyController enemyController;
+    private EnemyParameterController enemyParameterController;
     [SerializeField] private float hit = 10f;
     [SerializeField] private float power = 10f;
 
@@ -24,7 +24,7 @@ private void Start()
     {
         gunTipPosition = gunTip.transform.position;
         hitController = bullet.GetComponent<HitController>();
-        enemyController = GameObject.Find(name).GetComponent<EnemyController>();
+        enemyParameterController = GameObject.Find(name).GetComponent<EnemyParameterController>();
     }       
 
     private void Update()
@@ -42,7 +42,7 @@ private void Start()
             Debug.Log("shot");
 
             //�e�̃C���X�^���X�쐬
-            GameObject bulletInstance = Instantiate(bullet,gunTipPosition,Quaternion.identity);
+            GameObject bulletInstance = Instantiate(bullet,gunTipPosition,Quaternion.LookRotation(gunTip.transform.forward));
 
             //Debug.Log(bulletInstance.transform.position);
             //Debug.Log(gunTipPosition);
@@ -64,8 +64,8 @@ private void Start()
         if (hitController.CheckHit())
         {
             Debug.Log(hitController.CheckHit());
-            enemyController.DecreaseHp(hit);
-            Debug.Log(enemyController.GetHp());
+            enemyParameterController.DecreaseHp(hit);
+            Debug.Log(enemyParameterController.GetHp());
             hitController.ChangeHitChecked();
         }
     }

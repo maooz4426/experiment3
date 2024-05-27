@@ -34,12 +34,12 @@ public class RigidMoveEditor : Editor
     }
 }
 
-[CustomEditor(typeof(EnemyController))]
+[CustomEditor(typeof(EnemyParameterController))]
 public class EnemyControllerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        if (target is EnemyController)
+        if (target is EnemyParameterController)
         {
             GUILayout.Label("このコンポネントは敵の設定を行います。");
            

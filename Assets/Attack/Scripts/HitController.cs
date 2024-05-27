@@ -5,7 +5,7 @@ using UnityEngine;
 public class HitController : MonoBehaviour
 {
     private PlayerController playerController;
-    private EnemyController enemyController;
+    private EnemyParameterController enemyParameterController;
     [SerializeField] private float hitDamage = 10f;
     [SerializeField] private string targetTagName = "Enemy";
     private bool hitcheck = false;
@@ -17,13 +17,21 @@ public class HitController : MonoBehaviour
 
     private void Start()
     {
-        enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
-
-        //レネだけはenemybody付けてるので参照の仕方を変える
-        if(enemyController == null)
+        if (GameObject.FindWithTag(targetTagName))
         {
-            enemyController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyController>();
+            enemyParameterController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyParameterController>();
         }
+        else
+        {
+            //レネだけはenemybody付けてるので参照の仕方を変える
+            enemyParameterController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyParameterController>();
+        }
+        //enemyParameterController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyParameterController>();
+
+        //if(enemyParameterController == null)
+        //{
+        //    enemyParameterController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyParameterController>();
+        //}
 
         effectManger = GameObject.Find("EffectManager").GetComponent<EffectManger>();
         
@@ -35,8 +43,8 @@ public class HitController : MonoBehaviour
 
         if(col.gameObject.tag == "EnemyBody")
         {
-            
-            enemyController.DecreaseHp(hitDamage);
+
+            enemyParameterController.DecreaseHp(hitDamage);
             hitcheck = true;
             effectManger.OnBlood(this.transform.position);
 
