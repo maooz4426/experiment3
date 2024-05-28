@@ -29,7 +29,7 @@ public class ParticleHitController : MonoBehaviour
         if (player.gameObject.tag == targetTagName)
         {
             playerController.DecreaseHp(hitDamage);
-            Debug.Log(playerController.GetHp());
+            //Debug.Log(playerController.GetHp());
         }
     }
 }
