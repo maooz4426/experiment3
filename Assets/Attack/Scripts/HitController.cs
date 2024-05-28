@@ -10,6 +10,7 @@ public class HitController : MonoBehaviour
     [SerializeField] private string targetTagName = "Enemy";
     private bool hitcheck = false;
     private bool targetEnemy;
+    [SerializeField] private bool Enemy = true;
 
     //弾丸は当たったら消えるように
     [SerializeField] bool bullet = false;
@@ -46,11 +47,11 @@ public class HitController : MonoBehaviour
 
             enemyParameterController.DecreaseHp(hitDamage);
             hitcheck = true;
-            if (!bullet)
-            {
-                VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
+          
+            
+            //VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
                 
-            }
+            
             
             effectManger.OnBlood(this.transform.position);
 
@@ -63,11 +64,12 @@ public class HitController : MonoBehaviour
             Debug.Log("hit");
             
             
-        }else if(col.gameObject.tag == "Player")
-        {
-            playerController.DecreaseHp(hitDamage);
-            Debug.Log(playerController.GetHp());
         }
+        //else if(col.gameObject.tag == "Player")
+        //{
+        //    playerController.DecreaseHp(hitDamage);
+        //    Debug.Log(playerController.GetHp());
+        //}
     }
 
  
