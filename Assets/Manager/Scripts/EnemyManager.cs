@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
 
     //現在の敵
     private GameObject currentEnemy;
-    private EnemyParameterController currentEnemyParameterController;
+    private EnemyController currentEnemyController;
 
     [Header("FirstEnemyPositionParameter")]
     private Vector3 firstEnemyPosition;
@@ -45,7 +45,7 @@ public class EnemyManager : MonoBehaviour
         
         enemy1Instance.GetComponent<CharacterController>().enabled = true;
         currentEnemy = enemy1Instance;
-        currentEnemyParameterController = currentEnemy.GetComponent<EnemyParameterController>();
+        currentEnemyController = currentEnemy.GetComponent<EnemyController>();
 
         weaponManager = GameObject.Find("WeaponManager").GetComponent<WeaponManager>();
     }
@@ -54,7 +54,7 @@ public class EnemyManager : MonoBehaviour
     {
         //Debug.Log(currentEnemyParameterController.GetHp());
         //hpが0以下になったら変更
-        if (currentEnemyParameterController.GetHp() <= 0)
+        if (currentEnemyController.GetHp() <= 0)
         {
             ChangeEnemy();
         }
@@ -65,7 +65,7 @@ public class EnemyManager : MonoBehaviour
         
         Vector3 currentPosition;
         //敵の個体番号でスイッチ
-        switch (currentEnemyParameterController.GetEnemyNum())
+        switch (currentEnemyController.GetEnemyNum())
         {
                 
             case 1:
@@ -77,7 +77,7 @@ public class EnemyManager : MonoBehaviour
                 enemy2Instance = Instantiate(enemy2, currentPosition, Quaternion.identity);
                 //現在の敵を参照できるように
                 currentEnemy = enemy2Instance;
-                currentEnemyParameterController = currentEnemy.GetComponent <EnemyParameterController>();
+                currentEnemyController = currentEnemy.GetComponent <EnemyController>();
                 //weaponmanagerに変更を適応
                 weaponManager.ChangeTargetEnemy(enemy2Instance);
                 break;
@@ -87,7 +87,7 @@ public class EnemyManager : MonoBehaviour
                 Destroy(currentEnemy);
                 enemy3Instance = Instantiate(enemy3, currentPosition, Quaternion.identity);
                 currentEnemy = enemy3Instance;
-                currentEnemyParameterController = currentEnemy.GetComponent<EnemyParameterController>();
+                currentEnemyController = currentEnemy.GetComponent<EnemyController>();
                 weaponManager.ChangeTargetEnemy(enemy3Instance);
                 break;
             case 3:

@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   enemyNum: 1
+  hitEnemyClip: {fileID: 8300000, guid: 47c110edb56292c4e9e4d2395daad008, type: 3}
 --- !u!143 &3222238569193178973
 CharacterController:
   m_ObjectHideFlags: 0

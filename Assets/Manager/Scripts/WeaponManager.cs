@@ -32,7 +32,7 @@ public class WeaponManager : MonoBehaviour
         player = GameObject.Find(PlayerName);
         enemy = GameObject.FindWithTag("Enemy");
         playerHp = player.GetComponent<PlayerController>().GetHp();
-        enemyHp = enemy.GetComponent<EnemyParameterController>().GetHp();
+        enemyHp = enemy.GetComponent<EnemyController>().GetHp();
 
         bulletHitController = bullet.GetComponent<HitController>();
         bulletHitController.SetDamage(bulletDamage);
@@ -50,13 +50,13 @@ public class WeaponManager : MonoBehaviour
     private void Update()
     {
         playerHp = player.GetComponent<PlayerController>().GetHp();
-        enemyHp = enemy.GetComponent<EnemyParameterController>().GetHp();
+        enemyHp = enemy.GetComponent<EnemyController>().GetHp();
     }
 
     public void ChangeTargetEnemy(GameObject enemyNow)
     {
         enemy = enemyNow;
-        enemyHp = enemy.GetComponent<EnemyParameterController>().GetHp();
+        enemyHp = enemy.GetComponent<EnemyController>().GetHp();
         Debug.Log("changeEnemy");
     }
 }

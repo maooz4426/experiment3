@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   enemyNum: 2
+  hitEnemyClip: {fileID: 8300000, guid: 454ec9f55607c5e428c00b9d4eb5a3ac, type: 3}
 --- !u!114 &2234217613429259518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be375e90bd8bde4a8d89bd0dc47d982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   speed: 10
 --- !u!54 &-3602446557163290310
 Rigidbody:

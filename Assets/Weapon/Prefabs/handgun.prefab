@@ -157,6 +157,7 @@ MonoBehaviour:
   hit: 10
   power: 10000
   flash: {fileID: 3174300807902929079}
+  sound: {fileID: 8300000, guid: 6e189ac52d3c42647bab64534d04796e, type: 3}
 --- !u!1001 &6600600631203644303
 PrefabInstance:
   m_ObjectHideFlags: 0

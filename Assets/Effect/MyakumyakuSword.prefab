@@ -2131,6 +2131,7 @@ GameObject:
   - component: {fileID: 1513623847607334669}
   - component: {fileID: 5909056745298036472}
   - component: {fileID: 8882441028010953975}
+  - component: {fileID: 4377547486254361611}
   m_Layer: 0
   m_Name: MyakumyakuSword
   m_TagString: weapon
@@ -2197,7 +2198,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDamage: 10
   targetTagName: Enemy
+  Enemy: 1
+  bullet: 0
   effectManger: {fileID: 0}
+  soundclip: {fileID: 8300000, guid: 772d7b5a3e8e5be47b792e1f3b847909, type: 3}
 --- !u!114 &8882441028010953975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,6 +2223,19 @@ MonoBehaviour:
   - {x: -0.4800431, y: 0.14064045, z: 0.015600473}
   - {x: -0.4800431, y: 0.23955871, z: 0.0071217744}
   - {x: -0.4800431, y: 0.34099573, z: -0.0025405015}
+--- !u!114 &4377547486254361611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931123780050251885}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dcf407564fd16449f27cf543ea8d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundclip: {fileID: 8300000, guid: 8f51232fed1ef8e4c93c52ef6f779b38, type: 3}
 --- !u!1 &6968995533468421335
 GameObject:
   m_ObjectHideFlags: 0
