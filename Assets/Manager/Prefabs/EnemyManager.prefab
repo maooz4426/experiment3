@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1: {fileID: 314042939338123806, guid: 0a068c4d631c6b84b8670c7cd70b2dd7, type: 3}
   enemy2: {fileID: 5522131716758579321, guid: 72125860d0701bf40b2f9471fbd6c3db, type: 3}
-  enemy3: {fileID: 0}
+  enemy3: {fileID: 2627668079737671532, guid: 947464506c4b67d4093fbc8d18b12451, type: 3}
   xAdd: 0
   yAdd: 10
   zAdd: 10
+  endView: {fileID: 362591323379544192, guid: df7c1d8ad7c5e416487027cd5abef6c0, type: 3}
