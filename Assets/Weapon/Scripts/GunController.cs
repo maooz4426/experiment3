@@ -18,6 +18,8 @@ public class GunController : MonoBehaviour
     private EnemyParameterController enemyParameterController;
     [SerializeField] private float hit = 10f;
     [SerializeField] private float power = 10f;
+
+    [SerializeField] private GameObject flash;
     
     
     //バイブレーション用
@@ -45,6 +47,7 @@ private void Start()
         //�E�̃g���K�[�����ꂽ��
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
+            flash.GetComponent<ParticleSystem>().Play();
             Debug.Log("shot");
             
             // VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
