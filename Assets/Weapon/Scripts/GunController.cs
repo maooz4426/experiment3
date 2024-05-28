@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -15,7 +16,7 @@ public class GunController : MonoBehaviour
     //�e����position�c��
     private Vector3 gunTipPosition;
     private HitController hitController;
-    private EnemyParameterController enemyParameterController;
+    private EnemyController enemyController;
     [SerializeField] private float hit = 10f;
     [SerializeField] private float power = 10f;
 
@@ -25,13 +26,21 @@ public class GunController : MonoBehaviour
     //バイブレーション用
     private RightWeaponController weaponController;
 
+    [SerializeField] private AudioClip sound;
+    private AudioSource audioSource;
+
 
 private void Start()
     {
         gunTipPosition = gunTip.transform.position;
         hitController = bullet.GetComponent<HitController>();
-        enemyParameterController = GameObject.Find(name).GetComponent<EnemyParameterController>();
+        enemyController = GameObject.Find(name).GetComponent<EnemyController>();
         weaponController = GameObject.Find("RightWeaponController").GetComponent<RightWeaponController>();
+
+        audioSource = this.AddComponent<AudioSource>();
+        audioSource.clip = sound;
+        audioSource.loop = false;
+
 
     }       
 
@@ -48,6 +57,9 @@ private void Start()
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             flash.GetComponent<ParticleSystem>().Play();
+
+            audioSource.Play();
+            
             Debug.Log("shot");
 
             //OVRInput.SetControllerVibration(0.1f, 0.1f, OVRInput.Controller.RTouch);
@@ -80,8 +92,8 @@ private void Start()
         if (hitController.CheckHit())
         {
             Debug.Log(hitController.CheckHit());
-            enemyParameterController.DecreaseHp(hit);
-            Debug.Log(enemyParameterController.GetHp());
+            enemyController.DecreaseHp(hit);
+            Debug.Log(enemyController.GetHp());
             hitController.ChangeHitChecked();
         }
     }

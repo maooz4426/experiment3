@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HitController : MonoBehaviour
 {
     private PlayerController playerController;
-    private EnemyParameterController enemyParameterController;
+    private EnemyController enemyController;
     [SerializeField] private float hitDamage = 10f;
     [SerializeField] private string targetTagName = "Enemy";
     private bool hitcheck = false;
@@ -21,22 +22,39 @@ public class HitController : MonoBehaviour
     //[SerializeField] private GameObject blood;
     //[SerializeField] private float disapper = 3f;
 
+
+    [SerializeField] private AudioClip hitclip;
+    private AudioSource hitSource;
+
+    
+    //[SerializeField] private AudioClip hitEnemyClip;
+    //private AudioSource hitEnemySource;
+
+
     private void Start()
     {
         if (GameObject.FindWithTag(targetTagName))
         {
-            enemyParameterController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyParameterController>();
+            enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
         }
         else
         {
             //���l������enemybody�t���Ă�̂ŎQ�Ƃ̎d����ς���
-            enemyParameterController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyParameterController>();
+            enemyController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyController>();
         }
         
 
         effectManger = GameObject.Find("EffectManager").GetComponent<EffectManger>();
 
         weaponController = GameObject.Find("RightWeaponController").GetComponent<RightWeaponController>();
+
+        hitSource = this.AddComponent<AudioSource>();
+        hitSource.clip = hitclip;
+        hitSource.loop = false;
+
+        //hitEnemySource = this.AddComponent<AudioSource>();
+        //hitEnemySource.clip = hitEnemyClip;
+        //hitEnemySource.loop = false;
     }
 
     private void OnTriggerEnter(Collider col)
@@ -45,7 +63,14 @@ public class HitController : MonoBehaviour
         if(col.gameObject.tag == "EnemyBody")
         {
 
-            enemyParameterController.DecreaseHp(hitDamage);
+            hitSource.Play();
+
+            //hitEnemySource.Play();
+
+            enemyController.DecreaseHp(hitDamage);
+
+            enemyController.PlayHitEnemySound();
+
             hitcheck = true;
 
             if (!bullet)
