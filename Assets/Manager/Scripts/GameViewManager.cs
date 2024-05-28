@@ -12,6 +12,11 @@ public class GameViewManager : MonoBehaviour
     private TerrainData terrainData;
     private Vector3 terrainSize;
 
+    private EnemyManager enemyManager;
+
+    [SerializeField] private GameObject EndView;
+    private bool endview = false;
+
 
     void Awake()
     {
@@ -26,8 +31,20 @@ public class GameViewManager : MonoBehaviour
         //playerのポジションをTerrainの真ん中に
         //player.transform.position = new Vector3(terrainSize.x/2, 0, terrainSize.z/2);
         player.transform.position = GetCenter();
+
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
-    
+
+    private void Update()
+    {
+        //if (enemyManager.CheckEnd() == true & endview==false)
+        //{
+        //    Vector3 position = GameObject.FindWithTag("EnemyBody").transform.position;
+        //    Instantiate(EndView,position,Quaternion.identity);
+        //    endview = true;
+        //}
+    }
+
     public Vector3 GetCenter()
     {
         return new Vector3(terrainSize.x/2,0,terrainSize.z/2);

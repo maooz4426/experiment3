@@ -25,7 +25,11 @@ public class EnemyManager : MonoBehaviour
 
     //敵を変更を適応させる
     private WeaponManager weaponManager;
-    
+
+    private bool end = false;
+
+    [SerializeField] private GameObject endView;
+    private Rigidbody rb;
 
     private void Awake()
     {
@@ -87,12 +91,19 @@ public class EnemyManager : MonoBehaviour
                 weaponManager.ChangeTargetEnemy(enemy3Instance);
                 break;
             case 3:
-                
+                Instantiate(endView,gameViewManager.GetCenter(), Quaternion.identity);
                 Destroy(currentEnemy);
+
                 
+                Destroy(GameObject.FindWithTag("GameView"));
                 break;
 
         }
+    }
+
+    public bool CheckEnd()
+    {
+        return end;
     }
 
     
