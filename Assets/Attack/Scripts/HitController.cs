@@ -49,7 +49,7 @@ public class HitController : MonoBehaviour
             hitcheck = true;
           
             
-           VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
+            //VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
                 
             
             
