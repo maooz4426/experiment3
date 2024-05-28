@@ -18,18 +18,22 @@ public class ParticleHitController : MonoBehaviour
         particleSystem = GetComponent<ParticleSystem>();
     }
 
+    private void FixedUpdate()
+    {
+        playerController = GameObject.FindWithTag(targetTagName).GetComponent<PlayerController>();
+    }
     private void OnParticleCollision(GameObject player)
     {
-        PerformActionOnCollision(player);
+        playerController.DecreaseHp(hitDamage);
+        //PerformActionOnCollision(player);
         
     }
 
     void PerformActionOnCollision(GameObject player)
     {
-        if (player.gameObject.tag == targetTagName)
-        {
-            playerController.DecreaseHp(hitDamage);
-            //Debug.Log(playerController.GetHp());
-        }
+       
+       playerController.DecreaseHp(hitDamage);
+       //Debug.Log(playerController.GetHp());
+        
     }
 }
