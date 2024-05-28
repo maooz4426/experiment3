@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - EnemyBody
+  - GameView
+  - weapon
+  - curse
+  - ground
   layers:
   - Default
   - TransparentFX

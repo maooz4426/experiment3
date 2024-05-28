@@ -77,6 +77,7 @@ private void Start()
 
             //����������
             bulletInstance.GetComponent<Rigidbody>().AddForce(gunTip.transform.forward*power);
+            Destroy(bulletInstance, 2f);
             Debug.Log(gunTip.transform.forward);
 
                   

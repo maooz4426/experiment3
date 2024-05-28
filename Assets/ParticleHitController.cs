@@ -24,16 +24,19 @@ public class ParticleHitController : MonoBehaviour
     }
     private void OnParticleCollision(GameObject player)
     {
-        playerController.DecreaseHp(hitDamage);
+        if(player.gameObject.tag == targetTagName) {
+            playerController.DecreaseHp(hitDamage);
+        }
+        
         //PerformActionOnCollision(player);
         
     }
 
-    void PerformActionOnCollision(GameObject player)
-    {
+    //void PerformActionOnCollision(GameObject player)
+    //{
        
-       playerController.DecreaseHp(hitDamage);
-       //Debug.Log(playerController.GetHp());
+    //   playerController.DecreaseHp(hitDamage);
+    //   //Debug.Log(playerController.GetHp());
         
-    }
+    //}
 }

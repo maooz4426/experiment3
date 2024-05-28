@@ -70,7 +70,7 @@ public class HitController : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
 
-        if(col.gameObject.tag == targetTagName)
+        if((col.gameObject.tag == targetTagName) || (col.gameObject.tag == "EnemyBody"))
         {
 
             hitSource.Play();
