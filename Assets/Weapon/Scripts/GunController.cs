@@ -49,8 +49,14 @@ private void Start()
         {
             flash.GetComponent<ParticleSystem>().Play();
             Debug.Log("shot");
-            
-            // VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
+
+            //OVRInput.SetControllerVibration(0.1f, 0.1f, OVRInput.Controller.RTouch);
+
+            //yield return new WaitForSeconds(0.5f);
+            //OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
+
+
+            VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
             //�e�̃C���X�^���X�쐬
             GameObject bulletInstance = Instantiate(bullet,gunTipPosition,Quaternion.LookRotation(gunTip.transform.forward));
 

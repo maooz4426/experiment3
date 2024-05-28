@@ -47,9 +47,11 @@ public class HitController : MonoBehaviour
 
             enemyParameterController.DecreaseHp(hitDamage);
             hitcheck = true;
-          
-            
-            //VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
+
+            if (!bullet)
+            {
+                VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
+            }
                 
             
             
