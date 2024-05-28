@@ -154,4 +154,4 @@ MonoBehaviour:
   bullet: {fileID: 8590465355722008155, guid: c1f60a43472071f4589b328a0d103c57, type: 3}
   gunTip: {fileID: 3068658060565533720}
   hit: 10
-  power: 100
+  power: 10000

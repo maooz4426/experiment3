@@ -48,7 +48,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(currentEnemyParameterController.GetHp());
+        //Debug.Log(currentEnemyParameterController.GetHp());
         //hpが0以下になったら変更
         if (currentEnemyParameterController.GetHp() <= 0)
         {

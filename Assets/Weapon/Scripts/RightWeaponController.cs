@@ -6,35 +6,35 @@ using UnityEngine;
 public class RightWeaponController : MonoBehaviour
 {
     [Header("weapon")]
-    //g‚¤•Ší‚ğ“o˜^‚·‚é‚½‚ß‚ÌƒŠƒXƒg
+    //ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½é‚½ï¿½ß‚Ìƒï¿½ï¿½Xï¿½g
     private List<GameObject> weapons = new List<GameObject> ();
 
-    //‰EƒRƒ“ƒgƒ[ƒ‰[‚Ìprefab
+    //ï¿½Eï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½ï¿½prefab
     [SerializeField] private GameObject rightController;
-    //Œ•‚Ìprefab
+    //ï¿½ï¿½ï¿½ï¿½prefab
     [SerializeField] private GameObject sord;
-    //e‚Ìprefab
+    //ï¿½eï¿½ï¿½prefab
     [SerializeField] private GameObject gun;
-    //icepick‚Ìprefab
+    //icepickï¿½ï¿½prefab
     [SerializeField] private GameObject icePick;
-    //‘•”õ‚µ‚Ä‚éweapon
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½weapon
     private GameObject currentWeapon;
-    //‰EƒRƒ“ƒgƒ[ƒ‰[‚ÌˆÊ’u
+    //ï¿½Eï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½ÌˆÊ’u
     private Transform parent;
-    //ˆê“x‰Ÿ‚µ‚½‚çˆê‚Â‚¾‚¯‚Ì•Ší‚É•ÏX‚Å‚«‚é‚æ‚¤‚É
+    //ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½É•ÏXï¿½Å‚ï¿½ï¿½ï¿½æ‚¤ï¿½ï¿½
     private bool changeable = true;
-    //•Ší“ü‚ê‘Ö‚¦‚Ì‚½‚ß‚Ìcount
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Ì‚ï¿½ï¿½ß‚ï¿½count
     private int weaponCnt = 0;
 
     private void Awake()
     {
-        //•Ší‚ğ“o˜^
+        //ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½^
         weapons.Add(rightController);
         weapons.Add(sord);
         weapons.Add(gun);
         weapons.Add (icePick);
         parent = this.transform;
-        //‰‚ß‚Í‰EƒRƒ“ƒgƒ[ƒ‰[‚ğ•\¦
+        //ï¿½ï¿½ï¿½ß‚Í‰Eï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½ï¿½\ï¿½ï¿½
         currentWeapon = Instantiate(rightController, parent);
     }
 
@@ -46,7 +46,7 @@ public class RightWeaponController : MonoBehaviour
         }
     }
 
-    //View‚ªgameview‚¾‚Á‚½‚ç•Ší•ÏXs‚¦‚é‚æ‚¤‚É
+    //Viewï¿½ï¿½gameviewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç•ï¿½ï¿½ÏXï¿½sï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½ï¿½
     private bool CheckView()
     {
         GameObject Gameview = GameObject.FindWithTag("GameView");
@@ -64,15 +64,15 @@ public class RightWeaponController : MonoBehaviour
     public void ChangeWeapon()
     {
         //Debug.Log(changeable);
-        //‰E’†w‚ÌƒgƒŠƒK[‚ğã‚°‚½‚ç“®ì
+        //ï¿½Eï¿½ï¿½ï¿½wï¿½Ìƒgï¿½ï¿½ï¿½Kï¿½[ï¿½ï¿½ï¿½ã‚°ï¿½ï¿½ï¿½ç“®ï¿½ï¿½
         if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)&&changeable)
         {
             Debug.Log(weaponCnt);
             changeable = false;
          
-            //‰EƒRƒ“ƒgƒ[ƒ‰[‚ğíœ
+            //ï¿½Eï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½íœ
             Destroy(currentWeapon);
-            //Œ•‚ğ¶¬
+            //ï¿½ï¿½ï¿½ğ¶ï¿½
             currentWeapon = Instantiate(weapons[weaponCnt], parent);
             Debug.Log("change");
             weaponCnt++;
@@ -80,14 +80,25 @@ public class RightWeaponController : MonoBehaviour
 
         }else if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
         {
-            //‰E’†w‚ÌƒgƒŠƒK[‚ğã‚°‚½‚çture‚É
+            //ï¿½Eï¿½ï¿½ï¿½wï¿½Ìƒgï¿½ï¿½ï¿½Kï¿½[ï¿½ï¿½ï¿½ã‚°ï¿½ï¿½ï¿½ï¿½tureï¿½ï¿½
             changeable=true;
-            //cntƒŠƒZƒbƒg
+            //cntï¿½ï¿½ï¿½Zï¿½bï¿½g
             if (weaponCnt == weapons.Count )
             {
                 weaponCnt = 0;
             }
         }
    
+    }
+    
+    public void StartVibration(float frequency, float amplitude, float duration, OVRInput.Controller controller)
+    {
+        StartCoroutine(Vibrate(frequency, amplitude, duration, controller));
+    }
+    private IEnumerator Vibrate(float frequency, float amplitude, float duration, OVRInput.Controller controller)
+    {
+        OVRInput.SetControllerVibration(frequency, amplitude, controller);
+        yield return new WaitForSeconds(duration);
+        OVRInput.SetControllerVibration(0, 0, controller); // ãƒã‚¤ãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’åœæ­¢
     }
 }

@@ -18,6 +18,10 @@ public class GunController : MonoBehaviour
     private EnemyParameterController enemyParameterController;
     [SerializeField] private float hit = 10f;
     [SerializeField] private float power = 10f;
+    
+    
+    //バイブレーション用
+    private RightWeaponController weaponController;
 
 
 private void Start()
@@ -25,6 +29,8 @@ private void Start()
         gunTipPosition = gunTip.transform.position;
         hitController = bullet.GetComponent<HitController>();
         enemyParameterController = GameObject.Find(name).GetComponent<EnemyParameterController>();
+        weaponController = GameObject.Find("RightWeaponController").GetComponent<RightWeaponController>();
+
     }       
 
     private void Update()
@@ -40,7 +46,8 @@ private void Start()
         if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             Debug.Log("shot");
-
+            
+            // VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
             //�e�̃C���X�^���X�쐬
             GameObject bulletInstance = Instantiate(bullet,gunTipPosition,Quaternion.LookRotation(gunTip.transform.forward));
 
