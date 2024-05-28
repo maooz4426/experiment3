@@ -150,4 +150,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDamage: 10
   targetTagName: Enemy
+  bullet: 1
   effectManger: {fileID: 0}

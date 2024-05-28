@@ -10,8 +10,13 @@ public class HitController : MonoBehaviour
     [SerializeField] private string targetTagName = "Enemy";
     private bool hitcheck = false;
     private bool targetEnemy;
-    //ŒŒ‚µ‚Ô‚«
+
+    //å¼¾ä¸¸ã¯å½“ãŸã£ãŸã‚‰æ¶ˆãˆã‚‹ã‚ˆã†ã«
+    [SerializeField] bool bullet = false;
+    //è¡€ã®ã‚¨ãƒ•ã‚§ã‚¯ãƒˆç”¨ã«
     [SerializeField]private EffectManger effectManger;
+    //ãƒã‚¤ãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ç”¨
+    private RightWeaponController weaponController;
     //[SerializeField] private GameObject blood;
     //[SerializeField] private float disapper = 3f;
 
@@ -23,19 +28,14 @@ public class HitController : MonoBehaviour
         }
         else
         {
-            //ƒŒƒl‚¾‚¯‚Íenemybody•t‚¯‚Ä‚é‚Ì‚ÅQÆ‚Ìd•û‚ğ•Ï‚¦‚é
+            //ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½enemybodyï¿½tï¿½ï¿½ï¿½Ä‚ï¿½Ì‚ÅQï¿½Æ‚Ìdï¿½ï¿½ï¿½ï¿½Ï‚ï¿½ï¿½ï¿½
             enemyParameterController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyParameterController>();
         }
-        //enemyParameterController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyParameterController>();
-
-        //if(enemyParameterController == null)
-        //{
-        //    enemyParameterController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyParameterController>();
-        //}
+        
 
         effectManger = GameObject.Find("EffectManager").GetComponent<EffectManger>();
-        
-        //SetController();
+
+        weaponController = GameObject.Find("RightWeaponController").GetComponent<RightWeaponController>();
     }
 
     private void OnTriggerEnter(Collider col)
@@ -46,18 +46,22 @@ public class HitController : MonoBehaviour
 
             enemyParameterController.DecreaseHp(hitDamage);
             hitcheck = true;
+            if (!bullet)
+            {
+                VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
+                
+            }
+            
             effectManger.OnBlood(this.transform.position);
 
-            Destroy(this.gameObject);
+            if (bullet)
+            {
+                Destroy(this.gameObject);
+            }
             
-            //GameObject bloodInstance = Instantiate(blood,col.transform.position,Quaternion.identity);
-
-            //Destroy(bloodInstance, disapper);
        
             Debug.Log("hit");
-            //hitcheck = true;
-            //ChangeHitChecked();
-            //Debug.Log(enemyController.GetHp());
+            
             
         }else if(col.gameObject.tag == "Player")
         {
@@ -66,7 +70,7 @@ public class HitController : MonoBehaviour
         }
     }
 
-    
+ 
 
     public bool CheckHit()
     {
@@ -92,17 +96,5 @@ public class HitController : MonoBehaviour
         targetTagName = name;
     }
 
-    //public void SetController()
-    //{
-    //    string target = GameObject.FindWithTag(targetTagName);
-    //    if(target == "Player")
-    //    {
-    //        playerController = GameObject.Find(targetTagName).GetComponent<PlayerController>();
-    //        targetEnemy = false;
-    //    }else if(target == "Enemy")
-    //    {
-    //        enemyController = GameObject.Find(targetName).GetComponent<EnemyController>();
-    //        targetEnemy = true;
-    //    }
-    //}
+  
 }
