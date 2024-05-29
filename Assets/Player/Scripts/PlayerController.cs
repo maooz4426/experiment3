@@ -16,4 +16,11 @@ public class PlayerController : MonoBehaviour
         VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.LTouch);
         hp -= damage;
     }
+
+    public void ResetController()
+    {
+        RightWeaponController rightController = GameObject.Find("RightWeaponController").GetComponent<RightWeaponController>();
+        
+        rightController.ResetController();
+    }
 }

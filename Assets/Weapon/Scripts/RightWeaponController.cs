@@ -90,15 +90,11 @@ public class RightWeaponController : MonoBehaviour
         }
    
     }
-    
-    public void StartVibration(float frequency, float amplitude, float duration, OVRInput.Controller controller)
+
+    public void ResetController()
     {
-        StartCoroutine(Vibrate(frequency, amplitude, duration, controller));
+        Destroy((currentWeapon));
+        Instantiate(rightController, parent);
     }
-    private IEnumerator Vibrate(float frequency, float amplitude, float duration, OVRInput.Controller controller)
-    {
-        OVRInput.SetControllerVibration(frequency, amplitude, controller);
-        yield return new WaitForSeconds(duration);
-        OVRInput.SetControllerVibration(0, 0, controller); // バイブレーションを停止
-    }
+   
 }
