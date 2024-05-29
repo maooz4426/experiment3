@@ -9,7 +9,7 @@ public class changeObjectA : MonoBehaviour
 
     private PlayerInputAction inputActions;
 
-    private void Start()
+    private void Awake()
     {
         thisView = this.gameObject;//直節view取得
         inputActions = new PlayerInputAction();
