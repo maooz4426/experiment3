@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.21111889, g: 0.05814965, b: 0.036026325, a: 1}
+  m_IndirectSpecularColor: {r: 0.17438225, g: 0.04666934, b: 0.029854551, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,10 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1200219303759965076, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7475000669339558691, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.75
@@ -182,10 +178,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8578528071783774783, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1244773577}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}
 --- !u!1 &663033629
 GameObject:
@@ -233,23 +226,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &686832494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 625810067784598059, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
-  m_PrefabInstance: {fileID: 1514807716}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &686832500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686832494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88056831397e540439384326fe1b9979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,25 +431,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1244773576 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8578528071783774783, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}
-  m_PrefabInstance: {fileID: 21397613}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1244773577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244773576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291f33b57a9dc32488a1578cca22c488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisView: {fileID: 0}
-  nextView: {fileID: 6168261987690112557, guid: d8eda9be3f7404f95a6db20e56c4db27, type: 3}
 --- !u!1001 &1514807716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -485,10 +442,6 @@ PrefabInstance:
     - target: {fileID: 625810067784598059, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3562642127107505250, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5812428821513854470, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
       propertyPath: m_LocalPosition.x
@@ -530,13 +483,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1421181830652948559, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 625810067784598059, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 686832500}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f18b65537f1d3b34da5cab31136cc305, type: 3}
 --- !u!1001 &1704526606
 PrefabInstance:

@@ -49,5 +49,5 @@ MonoBehaviour:
   bullet: {fileID: 5477992161734243889, guid: 8017050ae33620c4686600aa1c903239, type: 3}
   bulletDamage: 10
   sord: {fileID: 6931123780050251885, guid: 9014213f478212e49be050ed70ef8837, type: 3}
-  sordDamage: 5
+  sordDamage: 4
   icepick: {fileID: 2290679164195909020, guid: 36cbd69f31ce2a54ea5553dfb86a7a98, type: 3}

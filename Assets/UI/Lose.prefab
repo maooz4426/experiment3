@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 7380185823884757773}
   - component: {fileID: 9165813540171522862}
   - component: {fileID: 1067577754629765095}
+  - component: {fileID: 8776536827779591270}
   m_Layer: 3
   m_Name: Panel
   m_TagString: Untagged
@@ -347,6 +348,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8776536827779591270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891592727840122657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291f33b57a9dc32488a1578cca22c488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisView: {fileID: 0}
+  nextView: {fileID: 0}
 --- !u!1 &6070950108659533982
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +375,7 @@ GameObject:
   - component: {fileID: 1557371274842625831}
   - component: {fileID: 8703688511983235405}
   - component: {fileID: 7651952084280718700}
+  - component: {fileID: 6304505092040696864}
   m_Layer: 3
   m_Name: Lose
   m_TagString: Untagged
@@ -463,4 +479,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisView: {fileID: 0}
-  nextView: {fileID: 7060244621229437914, guid: 4f88f234804a84d7eb9bf3ef03a2c27a, type: 3}
+  nextView: {fileID: 8578528071783774783, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}
+--- !u!114 &6304505092040696864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070950108659533982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291f33b57a9dc32488a1578cca22c488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisView: {fileID: 0}
+  nextView: {fileID: 8578528071783774783, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}

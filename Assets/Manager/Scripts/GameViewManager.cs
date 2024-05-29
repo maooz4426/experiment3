@@ -48,6 +48,7 @@ public class GameViewManager : MonoBehaviour
         {
             LoseView();
         }
+
        
         //{
         //    Vector3 position = new Vector3(player.transform.position.x, this.transform.position.y, this.transform.position.z + 100);
@@ -72,6 +73,8 @@ public class GameViewManager : MonoBehaviour
         {
             Vector3 position = new Vector3(player.transform.position.x, player.transform.position.y+100, player.transform.position.z + 1000);
             Instantiate(loseView, position, Quaternion.identity);
+            Destroy(GameObject.FindWithTag("GameView"));
+            player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             lose = true;
         }
 
