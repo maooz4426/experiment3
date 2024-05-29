@@ -7,6 +7,8 @@ public class GameViewManager : MonoBehaviour
     private GameObject player;
     private PlayerController playerController;
 
+
+
     [Header("FieldsParameter")]
     [SerializeField] private Terrain terrain; //GameObject????????????
     [SerializeField] private GameObject loseView;
@@ -31,7 +33,7 @@ public class GameViewManager : MonoBehaviour
         //playercontrollerで設置したgameview時の設定を実行
         playerController = player.GetComponent<PlayerController>();
         playerController.GameStart();
-        
+
         
         
         
@@ -47,11 +49,14 @@ public class GameViewManager : MonoBehaviour
         //player.transform.position = new Vector3(terrainSize.x/2, 0, terrainSize.z/2);
         
 
-        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+      
     }
 
     void Start()
     {
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        enemyManager.StartGame();
+        
         //terrainの中央にする
         player.transform.position = GetCenter();
     }

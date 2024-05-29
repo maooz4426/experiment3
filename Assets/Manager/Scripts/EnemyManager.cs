@@ -36,8 +36,8 @@ public class EnemyManager : MonoBehaviour
         //gameViewManager = GameObject.Find("GameView").GetComponent<GameViewManager>();
         gameViewManager = this.GetComponentInParent<GameViewManager>();
         firstEnemyPosition = new Vector3(gameViewManager.GetCenter().x + xAdd, yAdd, gameViewManager.GetCenter().z + zAdd);
-        enemy1Instance = Instantiate(enemy1, firstEnemyPosition, Quaternion.identity);
-        enemy1Instance.GetComponent<CharacterController>().enabled = false;
+        // enemy1Instance = Instantiate(enemy1, firstEnemyPosition, Quaternion.identity);
+        // enemy1Instance.GetComponent<CharacterController>().enabled = false;
     }
 
     private void Start()
@@ -99,6 +99,13 @@ public class EnemyManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void StartGame()
+    {
+        enemy1Instance = Instantiate(enemy1, firstEnemyPosition, Quaternion.identity);
+        enemy1Instance.GetComponent<CharacterController>().enabled = true;
+        
     }
 
     public bool CheckEnd()
