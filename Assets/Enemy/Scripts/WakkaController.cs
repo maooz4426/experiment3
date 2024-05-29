@@ -97,6 +97,7 @@ public class WakkaController : MonoBehaviour
                 {
                     timer = 0;
                     state = EnemyState.Wait;
+                    
                     //attack1.GetComponent<ParticleSystem>().Stop();
                     foreach (GameObject attack in attacks)
                     {
