@@ -3,8 +3,10 @@ using TMPro;
 
 public class displayTimeLimit : MonoBehaviour
 {
-    [SerializeField] private float countDownSeconds = 30f;
+    [SerializeField] private float countDownSeconds;  // 3 minutes in seconds
     [SerializeField] public TextMeshProUGUI timeLimitText;
+    [SerializeField] public GameObject gameView;
+    [SerializeField] public GameObject loseView;
 
     private void Start()
     {
@@ -22,11 +24,16 @@ public class displayTimeLimit : MonoBehaviour
         else
         {
             timeLimitText.text = "Game over";
+            gameView.SetActive(false);
+            loseView.SetActive(true);
         }
     }
 
     private void UpdateTimeDisplay(float time)
     {
-        timeLimitText.text = "0 : " + Mathf.Ceil(time).ToString("0");
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        timeLimitText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
     }
 }
+
