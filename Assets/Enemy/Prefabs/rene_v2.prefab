@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  enemyNum: 3
+  enemyNum: 2
   hitEnemyClip: {fileID: 8300000, guid: 46cbf6853f23d77459e84397255e9734, type: 3}
 --- !u!114 &1930764904237771228
 MonoBehaviour:

@@ -39,6 +39,10 @@ public class MyakuController : MonoBehaviour
     private GameObject curseInstantiate;
 
     private bool attack = true;
+    [SerializeField] private AudioClip attackClip;
+    private AudioSource attackSource;
+    private bool sound = false;
+
 
     private void Start()
     {
@@ -55,6 +59,10 @@ public class MyakuController : MonoBehaviour
         Vector3 targetDirection = targetInterval.normalized;
 
         this.transform.rotation = Quaternion.LookRotation(new Vector3(0,0,targetDirection.z));
+
+        attackSource = this.AddComponent<AudioSource>();
+        attackSource.clip = attackClip;
+        attackSource.loop = false;
        
     }
 
@@ -143,6 +151,17 @@ public class MyakuController : MonoBehaviour
                 break;
         }
     }
+
+    private void AttackSound()
+    {
+        if (!sound)
+        {
+            attackSource.Play();
+            sound = true;
+        }
+
+    }
+
 
     public void OnTriggerEnter(Collider col)
     {

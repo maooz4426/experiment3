@@ -31,6 +31,7 @@ public class ReneController : MonoBehaviour
     private AudioSource attackSource;
 
     private bool sound = false;
+    private bool particle = false;
 
     private void Start()
     {
@@ -39,14 +40,14 @@ public class ReneController : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
 
+        //attack1.GetComponent<ParticleSystem>().Stop();
+        //attacks = new GameObject[] { attack1};
 
-        attacks = new GameObject[] { attack1};
-
-        foreach (GameObject attack in attacks)
-        {
-            //attack.transform.rotation = Quaternion.LookRotation(targetDirection);
-            attack.GetComponent<ParticleSystem>().Stop();
-        }
+        //foreach (GameObject attack in attacks)
+        //{
+        //    //attack.transform.rotation = Quaternion.LookRotation(targetDirection);
+        //    attack.GetComponent<ParticleSystem>().Stop();
+        //}
 
         attackSource = this.AddComponent<AudioSource>();
         attackSource.clip = attackClip;
@@ -77,31 +78,35 @@ public class ReneController : MonoBehaviour
                 }
                 break;
             case EnemyState.Attack:
-                //attack1.transform.rotation = Quaternion.LookRotation(targetDirection);
 
-                //attack1.GetComponent<ParticleSystem>().Play();
+                attack1.transform.rotation = Quaternion.LookRotation(targetDirection);
 
-
-                foreach (GameObject attack in attacks)
+                if (!particle)
                 {
-
-                    attack.transform.rotation = Quaternion.LookRotation(targetDirection);
-                    attack.GetComponent<ParticleSystem>().Play();
-
+                    attack1.GetComponent<ParticleSystem>().Play();
                 }
+                
+
+
+                //foreach (GameObject attack in attacks)
+                //{
+
+                //    attack.transform.rotation = Quaternion.LookRotation(targetDirection);
+                //    attack.GetComponent<ParticleSystem>().Play();
+
+                //}
 
                 timer += Time.deltaTime;
                 if (timer > 3f)
                 {
                     timer = 0;
                     state = EnemyState.Wait;
-                    //attack1.GetComponent<ParticleSystem>().Stop();
-                    foreach (GameObject attack in attacks)
-                    {
-                        attack.transform.rotation = Quaternion.LookRotation(targetDirection);
-                        attack.GetComponent<ParticleSystem>().Stop();
-                        sound = false;
-                    }
+                    attack1.GetComponent<ParticleSystem>().Stop();
+                    particle = false;
+                   
+                    //attack.transform.rotation = Quaternion.LookRotation(targetDirection);
+                    //attack.GetComponent<ParticleSystem>().Stop();
+                     
                 }
                 break;
         }
@@ -125,6 +130,7 @@ public class ReneController : MonoBehaviour
     {
         if (!sound)
         {
+
             attackSource.Play();
             sound = true;
         }

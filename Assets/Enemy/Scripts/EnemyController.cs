@@ -20,7 +20,13 @@ public class EnemyController : MonoBehaviour
 
     public void PlayHitEnemySound()
     {
-        hitEnemySource.Play();
+        try
+        {
+            hitEnemySource.Play();
+        }catch (System.Exception e)
+        {
+            Debug.LogError(e.ToString());
+        }
     }
 
     public float GetHp()
