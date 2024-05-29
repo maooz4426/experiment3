@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameViewManager : MonoBehaviour
 {
     private GameObject player;
+    private PlayerController playerController;
 
     [Header("FieldsParameter")]
     [SerializeField] private Terrain terrain; //GameObject????????????
@@ -21,19 +22,31 @@ public class GameViewManager : MonoBehaviour
     private bool lose = false;
 
 
+    //優先的に実行したいものをAwakeメソッドに
     void Awake()
     {
-        player = GameObject.Find("Player");
-        player.GetComponent<Rigidbody>().useGravity = true;
+        
+        player = GameObject.FindWithTag("Player");
+        
+        //playercontrollerで設置したgameview時の設定を実行
+        playerController = player.GetComponent<PlayerController>();
+        playerController.GameStart();
+        
+        //terrainの中央にする
+        player.transform.position = GetCenter();
+        
+        
+        // player = GameObject.Find("Player");
+        // player.GetComponent<Rigidbody>().useGravity = true;
 
-        //terrain?????????????????T?C?Y??????
+        //terrainを設定
         terrainInstance = Instantiate(terrain);
         terrainData = terrainInstance.terrainData;
         terrainSize = terrainData.size;
 
         //player???|?W?V??????Terrain???^??????
         //player.transform.position = new Vector3(terrainSize.x/2, 0, terrainSize.z/2);
-        player.transform.position = GetCenter();
+        
 
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
@@ -41,8 +54,6 @@ public class GameViewManager : MonoBehaviour
     private void Update()
 
     {
-      
-    
 
         if (player.GetComponent<PlayerController>().GetHp() < 0)
         {

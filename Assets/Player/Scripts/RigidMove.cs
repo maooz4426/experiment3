@@ -62,6 +62,8 @@ public class RigidMove : MonoBehaviour
         return grounded;
     }
 
+    
+
     private void OnEnable()
     {
         inputActions.Enable();

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class TitleViewManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        PlayerController playerController = GameObject.FindWithTag(("Player")).GetComponent<PlayerController>();
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerController.TitleStart();
     }
 }
