@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RigidMove : MonoBehaviour
 {
@@ -43,16 +44,26 @@ public class RigidMove : MonoBehaviour
         rb.velocity +=move;
        // print(rb.velocity);
 
-        if (OVRInput.GetDown(OVRInput.RawButton.A))
-        {
-            if (IsCheckGround())
-            {
-                rb.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
-
-                print("jump");
-            }
-        }
+        // if (OVRInput.GetDown(OVRInput.RawButton.A))
+        // {
+        //     if (IsCheckGround())
+        //     {
+        //         rb.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
+        //
+        //         print("jump");
+        //     }
+        // }
         
+    }
+
+    private void RigidJump(InputAction.CallbackContext context)
+    {
+        if (IsCheckGround())
+        {
+            rb.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
+
+            print("jump");
+        }
     }
 
     private bool IsCheckGround()
@@ -67,7 +78,14 @@ public class RigidMove : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Enable();
+        inputActions.Game.Jump.performed += RigidJump;
     }
+
+    public void JumpEnable()
+    {
+        inputActions.Game.Jump.performed += RigidJump;
+    }
+    
     
     private void OnDisable()
     {

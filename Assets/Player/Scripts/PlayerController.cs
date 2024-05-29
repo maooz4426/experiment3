@@ -38,5 +38,7 @@ public class PlayerController : MonoBehaviour
         this.GetComponent<RigidMove>().enabled = true;
         
         this.GetComponent<Rigidbody>().useGravity = true;
+
+        this.GetComponent<RigidMove>().JumpEnable();
     }
 }
