@@ -26,6 +26,8 @@ public class HitController : MonoBehaviour
     [SerializeField] private AudioClip hitclip;
     private AudioSource hitSource;
 
+    private bool curse = false;
+
     
     //[SerializeField] private AudioClip hitEnemyClip;
     //private AudioSource hitEnemySource;
@@ -33,14 +35,22 @@ public class HitController : MonoBehaviour
 
     private void Start()
     {
-        if (GameObject.FindWithTag(targetTagName))
+        if (targetTagName=="Enemy")
         {
-            enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
+            if (GameObject.FindWithTag(targetTagName))
+            {
+                enemyController = GameObject.FindWithTag(targetTagName).GetComponent<EnemyController>();
+            }
+            else
+            {
+                //���l������enemybody�t���Ă�̂ŎQ�Ƃ̎d����ς���
+                enemyController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyController>();
+            }
+           
         }
-        else
+        else if (targetTagName=="Player")
         {
-            //���l������enemybody�t���Ă�̂ŎQ�Ƃ̎d����ς���
-            enemyController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyController>();
+            playerController = GameObject.FindWithTag(targetTagName).GetComponent<PlayerController>();
         }
         
 
@@ -60,27 +70,38 @@ public class HitController : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
 
-        if(col.gameObject.tag == "EnemyBody")
+        if((col.gameObject.tag == targetTagName) || (col.gameObject.tag == "EnemyBody"))
         {
 
             hitSource.Play();
 
             //hitEnemySource.Play();
+            if(targetTagName == "Enemy")
+            {
+                enemyController.DecreaseHp(hitDamage);
 
-            enemyController.DecreaseHp(hitDamage);
+                enemyController.PlayHitEnemySound();
 
-            enemyController.PlayHitEnemySound();
+                effectManger.OnBlood(this.transform.position);
+            }
+            else if(targetTagName == "Player")
+            {
+                playerController.DecreaseHp(hitDamage);
+                hitSource.Play();
+                Debug.Log(playerController.GetHp());
+            }
+            
 
             hitcheck = true;
 
-            if (!bullet)
+            if (!bullet || !curse)
             {
                 VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
             }
                 
             
             
-            effectManger.OnBlood(this.transform.position);
+            
 
             if (bullet)
             {
@@ -89,6 +110,7 @@ public class HitController : MonoBehaviour
             
        
             Debug.Log("hit");
+            
             
             
         }

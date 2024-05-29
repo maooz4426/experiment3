@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MyakuController : MonoBehaviour
 {
@@ -32,6 +34,11 @@ public class MyakuController : MonoBehaviour
     [SerializeField] private EnemyState state;
 
     [SerializeField]private float speed = 10;
+
+    [SerializeField] private GameObject curse;
+    private GameObject curseInstantiate;
+
+    private bool attack = true;
 
     private void Start()
     {
@@ -102,6 +109,7 @@ public class MyakuController : MonoBehaviour
                 {
                     timer = 0;
                     state = EnemyState.Wait;
+                    attack = true;
                 }
 
                 break;
@@ -111,6 +119,8 @@ public class MyakuController : MonoBehaviour
 
     }
 
+    //private bool attack = true;
+
     private void AtackPlayer()
     {
         float r = Random.Range(0, 100);
@@ -119,6 +129,17 @@ public class MyakuController : MonoBehaviour
         {
             case 5:
                 state = EnemyState.Attack;
+                if (attack)
+                {
+
+                    Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y + 10f,this.transform.position.z);
+                    Vector3 targetDirection = player.transform.position - position;
+                    targetDirection.Normalize();
+                    curseInstantiate = Instantiate(curse, position, Quaternion.identity);
+                    curseInstantiate.GetComponent<Rigidbody>().AddForce(targetDirection*50f,ForceMode.Impulse);
+                    Destroy(curseInstantiate,5f);  
+                    attack = false;
+                }
                 break;
         }
     }

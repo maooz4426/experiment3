@@ -2201,7 +2201,7 @@ MonoBehaviour:
   Enemy: 1
   bullet: 0
   effectManger: {fileID: 0}
-  soundclip: {fileID: 8300000, guid: 772d7b5a3e8e5be47b792e1f3b847909, type: 3}
+  hitclip: {fileID: 0}
 --- !u!114 &8882441028010953975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,7 +2209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6931123780050251885}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff4f5a8991d7fa47baed5c5ff25979f, type: 3}
   m_Name: 
