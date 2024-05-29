@@ -7,7 +7,8 @@ public class GameViewManager : MonoBehaviour
     private GameObject player;
 
     [Header("FieldsParameter")]
-    [SerializeField] private Terrain terrain; //GameObjectにしてはだめ
+    [SerializeField] private Terrain terrain; //GameObject????????????
+    [SerializeField] private GameObject loseView;
     private Terrain terrainInstance;
     private TerrainData terrainData;
     private Vector3 terrainSize;
@@ -23,12 +24,12 @@ public class GameViewManager : MonoBehaviour
         player = GameObject.Find("Player");
         player.GetComponent<Rigidbody>().useGravity = true;
 
-        //terrainを生成させてかつサイズを取得
+        //terrain?????????????????T?C?Y??????
         terrainInstance = Instantiate(terrain);
         terrainData = terrainInstance.terrainData;
         terrainSize = terrainData.size;
 
-        //playerのポジションをTerrainの真ん中に
+        //player???|?W?V??????Terrain???^??????
         //player.transform.position = new Vector3(terrainSize.x/2, 0, terrainSize.z/2);
         player.transform.position = GetCenter();
 
@@ -37,6 +38,11 @@ public class GameViewManager : MonoBehaviour
 
     private void Update()
     {
+        if (player.GetComponent<PlayerController>().GetHp() < 0)
+        {
+            Vector3 position = new Vector3(player.transform.position.x, this.transform.y, this.transform.position.z + 100);
+            Instantiate(loseView, position, Quaternion.identity);
+        }
         //if (enemyManager.CheckEnd() == true & endview==false)
         //{
         //    Vector3 position = GameObject.FindWithTag("EnemyBody").transform.position;
