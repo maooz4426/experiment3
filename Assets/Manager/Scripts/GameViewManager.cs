@@ -92,7 +92,7 @@ public class GameViewManager : MonoBehaviour
     {
         if (!lose)
         {
-            Vector3 position = new Vector3(player.transform.position.x, player.transform.position.y+100, player.transform.position.z + 1000);
+            Vector3 position = new Vector3(player.transform.position.x, player.transform.position.y+100, player.transform.position.z + 500);
             Instantiate(loseView, position, Quaternion.identity);
             Destroy(GameObject.FindWithTag("GameView"));
             player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;

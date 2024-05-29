@@ -24,6 +24,34 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     ""name"": ""Player Input Action"",
     ""maps"": [
         {
+            ""name"": ""Title"",
+            ""id"": ""32c65fc0-457e-4724-8a74-b2b32f5a37c4"",
+            ""actions"": [
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""b7d0ffe9-b7cd-48f9-a5f9-bd90c3e024fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a5a525a9-ee77-40f6-a07b-5884bb36740a"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""Game"",
             ""id"": ""841b81bf-baf5-4a93-83a4-8e50a8b0e031"",
             ""actions"": [
@@ -112,34 +140,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Title"",
-            ""id"": ""32c65fc0-457e-4724-8a74-b2b32f5a37c4"",
-            ""actions"": [
-                {
-                    ""name"": ""Start"",
-                    ""type"": ""Button"",
-                    ""id"": ""b7d0ffe9-b7cd-48f9-a5f9-bd90c3e024fd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""a5a525a9-ee77-40f6-a07b-5884bb36740a"",
-                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""End"",
             ""id"": ""cdbf28a1-1866-4bff-9300-706d2aa6f2bc"",
             ""actions"": [
@@ -170,15 +170,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
+        // Title
+        m_Title = asset.FindActionMap("Title", throwIfNotFound: true);
+        m_Title_Start = m_Title.FindAction("Start", throwIfNotFound: true);
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
         m_Game_Jump = m_Game.FindAction("Jump", throwIfNotFound: true);
         m_Game_SwitchWeapon = m_Game.FindAction("Switch Weapon", throwIfNotFound: true);
         m_Game_GunTrigger = m_Game.FindAction("Gun Trigger", throwIfNotFound: true);
-        // Title
-        m_Title = asset.FindActionMap("Title", throwIfNotFound: true);
-        m_Title_Start = m_Title.FindAction("Start", throwIfNotFound: true);
         // End
         m_End = asset.FindActionMap("End", throwIfNotFound: true);
         m_End_Restart = m_End.FindAction("Restart", throwIfNotFound: true);
@@ -239,6 +239,52 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     {
         return asset.FindBinding(bindingMask, out action);
     }
+
+    // Title
+    private readonly InputActionMap m_Title;
+    private List<ITitleActions> m_TitleActionsCallbackInterfaces = new List<ITitleActions>();
+    private readonly InputAction m_Title_Start;
+    public struct TitleActions
+    {
+        private @PlayerInputAction m_Wrapper;
+        public TitleActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Start => m_Wrapper.m_Title_Start;
+        public InputActionMap Get() { return m_Wrapper.m_Title; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TitleActions set) { return set.Get(); }
+        public void AddCallbacks(ITitleActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TitleActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TitleActionsCallbackInterfaces.Add(instance);
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
+        }
+
+        private void UnregisterCallbacks(ITitleActions instance)
+        {
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
+        }
+
+        public void RemoveCallbacks(ITitleActions instance)
+        {
+            if (m_Wrapper.m_TitleActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ITitleActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TitleActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TitleActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public TitleActions @Title => new TitleActions(this);
 
     // Game
     private readonly InputActionMap m_Game;
@@ -310,52 +356,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     }
     public GameActions @Game => new GameActions(this);
 
-    // Title
-    private readonly InputActionMap m_Title;
-    private List<ITitleActions> m_TitleActionsCallbackInterfaces = new List<ITitleActions>();
-    private readonly InputAction m_Title_Start;
-    public struct TitleActions
-    {
-        private @PlayerInputAction m_Wrapper;
-        public TitleActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Start => m_Wrapper.m_Title_Start;
-        public InputActionMap Get() { return m_Wrapper.m_Title; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(TitleActions set) { return set.Get(); }
-        public void AddCallbacks(ITitleActions instance)
-        {
-            if (instance == null || m_Wrapper.m_TitleActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_TitleActionsCallbackInterfaces.Add(instance);
-            @Start.started += instance.OnStart;
-            @Start.performed += instance.OnStart;
-            @Start.canceled += instance.OnStart;
-        }
-
-        private void UnregisterCallbacks(ITitleActions instance)
-        {
-            @Start.started -= instance.OnStart;
-            @Start.performed -= instance.OnStart;
-            @Start.canceled -= instance.OnStart;
-        }
-
-        public void RemoveCallbacks(ITitleActions instance)
-        {
-            if (m_Wrapper.m_TitleActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(ITitleActions instance)
-        {
-            foreach (var item in m_Wrapper.m_TitleActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_TitleActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public TitleActions @Title => new TitleActions(this);
-
     // End
     private readonly InputActionMap m_End;
     private List<IEndActions> m_EndActionsCallbackInterfaces = new List<IEndActions>();
@@ -401,16 +401,16 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         }
     }
     public EndActions @End => new EndActions(this);
+    public interface ITitleActions
+    {
+        void OnStart(InputAction.CallbackContext context);
+    }
     public interface IGameActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
         void OnGunTrigger(InputAction.CallbackContext context);
-    }
-    public interface ITitleActions
-    {
-        void OnStart(InputAction.CallbackContext context);
     }
     public interface IEndActions
     {

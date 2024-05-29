@@ -2,6 +2,34 @@
     "name": "Player Input Action",
     "maps": [
         {
+            "name": "Title",
+            "id": "32c65fc0-457e-4724-8a74-b2b32f5a37c4",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "b7d0ffe9-b7cd-48f9-a5f9-bd90c3e024fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a5a525a9-ee77-40f6-a07b-5884bb36740a",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "Game",
             "id": "841b81bf-baf5-4a93-83a4-8e50a8b0e031",
             "actions": [
@@ -84,34 +112,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Gun Trigger",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Title",
-            "id": "32c65fc0-457e-4724-8a74-b2b32f5a37c4",
-            "actions": [
-                {
-                    "name": "Start",
-                    "type": "Button",
-                    "id": "b7d0ffe9-b7cd-48f9-a5f9-bd90c3e024fd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "a5a525a9-ee77-40f6-a07b-5884bb36740a",
-                    "path": "<XRController>{RightHand}/{PrimaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
