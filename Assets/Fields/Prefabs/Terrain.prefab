@@ -1191,8 +1191,8 @@ Canvas:
   m_GameObject: {fileID: 4408935942038496810}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 2000000, guid: 79674db77adfc4d6f9f17fb043493b1e, type: 3}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1441,8 +1441,8 @@ Canvas:
   m_GameObject: {fileID: 6975210967958099569}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 2000000, guid: 79674db77adfc4d6f9f17fb043493b1e, type: 3}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2166,7 +2166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8180848488309114303
 Transform:
   m_ObjectHideFlags: 0
