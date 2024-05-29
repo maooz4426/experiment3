@@ -107,7 +107,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9ff954de-5c55-4247-9252-0b8414290459"",
-                    ""path"": ""<XRController>{RightHand}/{SecondaryButton}"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryButton}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
