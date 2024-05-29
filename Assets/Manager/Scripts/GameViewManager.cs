@@ -18,6 +18,8 @@ public class GameViewManager : MonoBehaviour
     [SerializeField] private GameObject EndView;
     private bool endview = false;
 
+    private bool lose = false;
+
 
     void Awake()
     {
@@ -37,12 +39,20 @@ public class GameViewManager : MonoBehaviour
     }
 
     private void Update()
+
     {
+      
+    
+
         if (player.GetComponent<PlayerController>().GetHp() < 0)
         {
-            Vector3 position = new Vector3(player.transform.position.x, this.transform.y, this.transform.position.z + 100);
-            Instantiate(loseView, position, Quaternion.identity);
+            LoseView();
         }
+       
+        //{
+        //    Vector3 position = new Vector3(player.transform.position.x, this.transform.position.y, this.transform.position.z + 100);
+        //    Instantiate(loseView, position, Quaternion.identity);
+        //}
         //if (enemyManager.CheckEnd() == true & endview==false)
         //{
         //    Vector3 position = GameObject.FindWithTag("EnemyBody").transform.position;
@@ -54,5 +64,16 @@ public class GameViewManager : MonoBehaviour
     public Vector3 GetCenter()
     {
         return new Vector3(terrainSize.x/2,0,terrainSize.z/2);
+    }
+
+    private void LoseView()
+    {
+        if (!lose)
+        {
+            Vector3 position = new Vector3(player.transform.position.x, player.transform.position.y+100, player.transform.position.z + 1000);
+            Instantiate(loseView, position, Quaternion.identity);
+            lose = true;
+        }
+
     }
 }

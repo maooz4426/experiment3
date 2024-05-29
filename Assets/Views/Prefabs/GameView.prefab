@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrain: {fileID: 6028808593955059805, guid: fae844dc45ebc4f828595619dc76caba, type: 3}
-  loseView: {fileID: 6070950108659533982, guid: 31d89c644ebfe4995a5d11ca4633726f, type: 3}
+  loseView: {fileID: 7202645366334159129, guid: cad8b8a9309f32f49903b8defdf3fb4e, type: 3}
   EndView: {fileID: 362591323379544192, guid: df7c1d8ad7c5e416487027cd5abef6c0, type: 3}
 --- !u!1001 &367748954476480192
 PrefabInstance:
