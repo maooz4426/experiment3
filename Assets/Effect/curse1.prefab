@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4002354115851086697}
   - component: {fileID: 1827177326500026795}
   - component: {fileID: 1294050786302602785}
+  - component: {fileID: 866039916202643607}
   m_Layer: 0
   m_Name: curse1
   m_TagString: Untagged
@@ -4830,3 +4831,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &866039916202643607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470210676729114977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c06a3a507fdc5244bcfa3d701a4fc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitDamage: 0.4
+  targetTagName: Player

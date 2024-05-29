@@ -112,6 +112,7 @@ public class MyakuController : MonoBehaviour
                 break;
             case EnemyState.Attack:
                 this.animator.SetBool(key_isAttack,true);
+                characterController.Move(targetDirection* speed*Time.deltaTime);
                 timer += Time.deltaTime;
                 if(timer > 3f)
                 {

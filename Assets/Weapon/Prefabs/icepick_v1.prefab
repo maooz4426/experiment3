@@ -10,23 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e9c56b25a11ea34c8631efa7a60caa1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.884474
+      value: 4.9209366
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e9c56b25a11ea34c8631efa7a60caa1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.884474
+      value: 4.9209366
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e9c56b25a11ea34c8631efa7a60caa1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.9710758
+      value: 2.4845853
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e9c56b25a11ea34c8631efa7a60caa1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5534e-10
+      value: -2.9716e-10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e9c56b25a11ea34c8631efa7a60caa1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38644
+      value: 0.092
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e9c56b25a11ea34c8631efa7a60caa1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -98,8 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDamage: 1
   targetTagName: Enemy
+  Enemy: 1
   bullet: 0
   effectManger: {fileID: 0}
+  hitclip: {fileID: 0}
 --- !u!64 &5588876675566260826
 MeshCollider:
   m_ObjectHideFlags: 0

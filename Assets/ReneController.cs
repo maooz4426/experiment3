@@ -33,6 +33,8 @@ public class ReneController : MonoBehaviour
     private bool sound = false;
     private bool particle = false;
 
+    private EnemyMove move;
+
     private void Start()
     {
         this.state = EnemyState.Wait;
@@ -40,7 +42,7 @@ public class ReneController : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
 
-        //attack1.GetComponent<ParticleSystem>().Stop();
+        attack1.GetComponent<ParticleSystem>().Stop();
         //attacks = new GameObject[] { attack1};
 
         //foreach (GameObject attack in attacks)
@@ -52,6 +54,8 @@ public class ReneController : MonoBehaviour
         attackSource = this.AddComponent<AudioSource>();
         attackSource.clip = attackClip;
         attackSource.loop = false;
+
+        move = this.GetComponent<EnemyMove>();
 
         //curse = this.GetComponent<ParticleSystem>();
     }
@@ -79,6 +83,8 @@ public class ReneController : MonoBehaviour
                 break;
             case EnemyState.Attack:
 
+                move.StopMove();
+
                 attack1.transform.rotation = Quaternion.LookRotation(targetDirection);
 
                 if (!particle)
@@ -97,11 +103,17 @@ public class ReneController : MonoBehaviour
                 //}
 
                 timer += Time.deltaTime;
-                if (timer > 3f)
+                if(timer > 0.2f)
+                {
+                    attack1.GetComponent<ParticleSystem>().Stop();
+                }
+
+                if (timer > 1f)
                 {
                     timer = 0;
                     state = EnemyState.Wait;
-                    attack1.GetComponent<ParticleSystem>().Stop();
+                    
+                    move.StartMove();
                     particle = false;
                    
                     //attack.transform.rotation = Quaternion.LookRotation(targetDirection);
@@ -116,14 +128,21 @@ public class ReneController : MonoBehaviour
     {
         float r = Random.Range(0, 100);
 
-        switch (r)
+        if (!particle)
         {
-            case 5:
-                state = EnemyState.Attack;
-                AttackSound();
-                sound = true;
-                break;
+            Debug.Log(r);
+            switch (r)
+            {
+                
+                case 5:
+                    
+                    state = EnemyState.Attack;
+                    AttackSound();
+                    sound = true;
+                    break;
+            }
         }
+       
     }
 
     private void AttackSound()

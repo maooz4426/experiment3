@@ -93,7 +93,7 @@ public class WakkaController : MonoBehaviour
                 }
 
                 timer += Time.deltaTime;
-                if (timer > 3f)
+                if (timer > 1f)
                 {
                     timer = 0;
                     state = EnemyState.Wait;
@@ -112,7 +112,7 @@ public class WakkaController : MonoBehaviour
 
     private void AtackPlayer()
     {
-        float r = Random.Range(0, 100);
+        float r = Random.Range(0, 500);
 
         switch (r)
         {

@@ -13,6 +13,8 @@ public class EnemyMove : MonoBehaviour
 
     private CharacterController characterController;
 
+    private bool able = true;
+
     void Start()
     {
         //プレイヤーオブジェクトを見つける
@@ -38,20 +40,36 @@ public class EnemyMove : MonoBehaviour
 
         // プレイヤーと敵の距離を計算
         float distance = Vector3.Distance(this.transform.position, player.transform.position);
-                
-        // プレイヤーを追いかける
-        if (distance > stopDistance)
-        {
-            // カメラの少し下に向かう位置を計算
-            //Vector3 targetPosition = player.transform.position - player.transform.up * offsetDistance;
-            Vector3 targetPosition = player.transform.position - this.transform.position;
-            targetPosition.Normalize();
 
-            //this.transform.LookAt(targetPosition);
-            this.transform.rotation = Quaternion.LookRotation(targetPosition);
-            //Debug.Log(characterController.isGrounded);
-            //transform.position += transform.forward * enemySpeed * Time.deltaTime;
-            characterController.Move(targetPosition * Time.deltaTime * enemySpeed);
-        }   
+        // カメラの少し下に向かう位置を計算
+        //Vector3 targetPosition = player.transform.position - player.transform.up * offsetDistance;
+        Vector3 targetPosition = player.transform.position - this.transform.position;
+        targetPosition.Normalize();
+
+        //this.transform.LookAt(targetPosition);
+        this.transform.rotation = Quaternion.LookRotation(targetPosition);
+
+        // プレイヤーを追いかける
+        if (able)
+        {
+            if (distance > stopDistance)
+            {
+                
+                //Debug.Log(characterController.isGrounded);
+                //transform.position += transform.forward * enemySpeed * Time.deltaTime;
+                characterController.Move(targetPosition * Time.deltaTime * enemySpeed);
+            }
+        }
+        
+    }
+
+    public void StopMove()
+    {
+        able = false;
+    }
+
+    public void StartMove()
+    {
+        able = true;
     }
 }

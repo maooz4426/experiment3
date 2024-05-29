@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 78c6fec021bdbef4b8b31aaea920b779, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.4000356
+      value: 4.4364657
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 78c6fec021bdbef4b8b31aaea920b779, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.4000356
+      value: 4.4364657
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 78c6fec021bdbef4b8b31aaea920b779, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.4000356
+      value: 4.4364657
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 78c6fec021bdbef4b8b31aaea920b779, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1736
+      value: 2.1533
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 78c6fec021bdbef4b8b31aaea920b779, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.20522
+      value: -0.50372
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 78c6fec021bdbef4b8b31aaea920b779, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.030325
+      value: -0.074435
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 78c6fec021bdbef4b8b31aaea920b779, type: 3}
       propertyPath: m_LocalRotation.w
@@ -306,10 +306,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db31388bcf3957643a8f4fabdde7b90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitDamage: 1
+  hitDamage: 5
   targetTagName: Enemy
+  Enemy: 1
   bullet: 0
   effectManger: {fileID: 0}
+  hitclip: {fileID: 0}
 --- !u!54 &6300787623387393632
 Rigidbody:
   m_ObjectHideFlags: 0
