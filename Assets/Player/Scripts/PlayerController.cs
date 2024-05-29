@@ -29,16 +29,21 @@ public class PlayerController : MonoBehaviour
     public void TitleStart()
     {
         this.GetComponent<RigidMove>().enabled = false;
-        
+        this.hp = 100;
     }
 
     //gameviewの時のplayer設定
     public void GameStart()
     {
+
         this.GetComponent<RigidMove>().enabled = true;
         
         this.GetComponent<Rigidbody>().useGravity = true;
 
         this.GetComponent<RigidMove>().JumpEnable();
+
+        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+
     }
 }

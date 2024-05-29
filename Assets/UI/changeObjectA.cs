@@ -9,12 +9,15 @@ public class changeObjectA : MonoBehaviour
 
     private PlayerInputAction inputActions;
 
+    private PlayerController playerController;
+
     private void Awake()
     {
         thisView = this.gameObject;//直節view取得
         inputActions = new PlayerInputAction();
 
-        
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        playerController.ResetController();
     }
 
     private void OnEnable()
@@ -48,9 +51,9 @@ public class changeObjectA : MonoBehaviour
         Instantiate(nextView);
         Destroy(thisView);
     }
-    public void OnClick()
-    {
-        Instantiate(nextView);
-        Destroy(thisView);
-    }
+    //public void OnClick()
+    //{
+    //    Instantiate(nextView);
+    //    Destroy(thisView);
+    //}
 }

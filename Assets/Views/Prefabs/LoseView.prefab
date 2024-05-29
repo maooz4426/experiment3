@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3499765479655542448}
+  - component: {fileID: 2123982756796043761}
   m_Layer: 0
   m_Name: LoseView
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   - {fileID: 758507258589499108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2123982756796043761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202645366334159129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291f33b57a9dc32488a1578cca22c488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisView: {fileID: 0}
+  nextView: {fileID: 8578528071783774783, guid: 32cb056abd35f479d9df8f77c5c42854, type: 3}
 --- !u!1001 &4384668532697746317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,8 +139,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lose
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8776536827779591270, guid: 31d89c644ebfe4995a5d11ca4633726f, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
