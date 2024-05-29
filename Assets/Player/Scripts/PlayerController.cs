@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float hp = 100;
 
+    
     public float GetHp()
     {
         return hp;
