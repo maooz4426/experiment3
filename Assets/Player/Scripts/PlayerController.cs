@@ -23,4 +23,19 @@ public class PlayerController : MonoBehaviour
         
         rightController.ResetController();
     }
+
+    //titleviewの時のplayer設定
+    public void TitleStart()
+    {
+        this.GetComponent<RigidMove>().enabled = false;
+        
+    }
+
+    //gameviewの時のplayer設定
+    public void GameStart()
+    {
+        this.GetComponent<RigidMove>().enabled = true;
+        
+        this.GetComponent<Rigidbody>().useGravity = true;
+    }
 }
