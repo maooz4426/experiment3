@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc5f285cd6f442bea342a27da65a27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDownSeconds: 5
+  countDownSeconds: 180
   timeLimitText: {fileID: 1583627566284966823}
   gameView: {fileID: 6975210967958099569}
   loseView: {fileID: 4408935942038496810}
