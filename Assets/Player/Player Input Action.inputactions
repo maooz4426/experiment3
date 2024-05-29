@@ -116,6 +116,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "End",
+            "id": "cdbf28a1-1866-4bff-9300-706d2aa6f2bc",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "0cb5ef97-76e8-49fc-bf29-a7b97c6a6fe3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3edb6552-5b31-42af-bae2-33cf14a4efb1",
+                    "path": "<OculusTouchController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

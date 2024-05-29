@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,16 +16,23 @@ public class RigidMove : MonoBehaviour
     private RaycastHit hit;
     [SerializeField] private GameObject cameraRig;
 
+    private PlayerInputAction inputActions;
+
     private void Awake()
     {
-
         rb = GetComponent<Rigidbody>();
+        inputActions = new PlayerInputAction();
+
     }
 
     private void FixedUpdate()
     {
-        Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) ;
-
+        //元々のコード
+        // Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) ;
+        
+        // InputActionのMoveアクションの入力を取得
+        Vector2 input = inputActions.Game.Move.ReadValue<Vector2>();
+        
         Vector3 forward = cameraRig.transform.forward;
         forward.Normalize();
         Vector3 right = cameraRig.transform.right;
@@ -34,8 +42,6 @@ public class RigidMove : MonoBehaviour
         
         rb.velocity +=move;
        // print(rb.velocity);
-
-        
 
         if (OVRInput.GetDown(OVRInput.RawButton.A))
         {
@@ -55,4 +61,16 @@ public class RigidMove : MonoBehaviour
         print(grounded);
         return grounded;
     }
+
+    private void OnEnable()
+    {
+        inputActions.Enable();
+    }
+    
+    private void OnDisable()
+    {
+        inputActions.Disable();
+    }
+
+   
 }
