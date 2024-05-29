@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     private Vector3 firstEnemyPosition;
     [SerializeField] private float xAdd = 0;
     [SerializeField] private float yAdd = 10;
-    [SerializeField] private float zAdd = 10;
+    [SerializeField] private float zAdd = 100;
 
     private GameViewManager gameViewManager;
 
