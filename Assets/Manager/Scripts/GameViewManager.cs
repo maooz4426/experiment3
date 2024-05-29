@@ -32,8 +32,7 @@ public class GameViewManager : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         playerController.GameStart();
         
-        //terrainの中央にする
-        player.transform.position = GetCenter();
+        
         
         
         // player = GameObject.Find("Player");
@@ -49,6 +48,12 @@ public class GameViewManager : MonoBehaviour
         
 
         enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+    }
+
+    void Start()
+    {
+        //terrainの中央にする
+        player.transform.position = GetCenter();
     }
 
     private void Update()
