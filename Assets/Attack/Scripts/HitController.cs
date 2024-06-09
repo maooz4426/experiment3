@@ -19,19 +19,13 @@ public class HitController : MonoBehaviour
     [SerializeField]private EffectManger effectManger;
     //バイブレーション用
     private RightWeaponController weaponController;
-    //[SerializeField] private GameObject blood;
-    //[SerializeField] private float disapper = 3f;
 
 
     [SerializeField] private AudioClip hitclip;
     private AudioSource hitSource;
 
     private bool curse = false;
-
     
-    //[SerializeField] private AudioClip hitEnemyClip;
-    //private AudioSource hitEnemySource;
-
 
     private void Start()
     {
@@ -43,7 +37,7 @@ public class HitController : MonoBehaviour
             }
             else
             {
-                //���l������enemybody�t���Ă�̂ŎQ�Ƃ̎d����ς���
+                //EnemyがなかったらEnemyBodyに
                 enemyController = GameObject.FindWithTag("EnemyBody").GetComponent<EnemyController>();
             }
            
@@ -61,10 +55,6 @@ public class HitController : MonoBehaviour
         hitSource = this.AddComponent<AudioSource>();
         hitSource.clip = hitclip;
         hitSource.loop = false;
-
-        //hitEnemySource = this.AddComponent<AudioSource>();
-        //hitEnemySource.clip = hitEnemyClip;
-        //hitEnemySource.loop = false;
     }
 
     private void OnTriggerEnter(Collider col)
@@ -98,27 +88,13 @@ public class HitController : MonoBehaviour
             {
                 VibrationController.instance.StartVibration(1.0f, 1.0f, 0.5f, OVRInput.Controller.RTouch);
             }
-                
             
-            
-            
-
             if (bullet)
             {
                 Destroy(this.gameObject);
             }
-            
-       
             Debug.Log("hit");
-            
-            
-            
         }
-        //else if(col.gameObject.tag == "Player")
-        //{
-        //    playerController.DecreaseHp(hitDamage);
-        //    Debug.Log(playerController.GetHp());
-        //}
     }
 
  

@@ -82,22 +82,5 @@ private void Start()
 
                   
         }
-
-     
-
     }
-
-    private void bulletHit()
-    {
-        
-        if (hitController.CheckHit())
-        {
-            Debug.Log(hitController.CheckHit());
-            enemyController.DecreaseHp(hit);
-            Debug.Log(enemyController.GetHp());
-            hitController.ChangeHitChecked();
-        }
-    }
-
-    
 }

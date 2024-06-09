@@ -30,7 +30,6 @@ public class RigidMove : MonoBehaviour
     {
         //元々のコード
         // Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) ;
-        
         // InputActionのMoveアクションの入力を取得
         Vector2 input = inputActions.Game.Move.ReadValue<Vector2>();
         
@@ -42,17 +41,6 @@ public class RigidMove : MonoBehaviour
         Vector3 move = (forward * input.y + right * input.x) * 0.5f;
         
         rb.velocity +=move;
-       // print(rb.velocity);
-
-        // if (OVRInput.GetDown(OVRInput.RawButton.A))
-        // {
-        //     if (IsCheckGround())
-        //     {
-        //         rb.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
-        //
-        //         print("jump");
-        //     }
-        // }
         
     }
 
@@ -68,12 +56,11 @@ public class RigidMove : MonoBehaviour
 
     private bool IsCheckGround()
     {
+        //球体型のレイキャストを地面に照射
         bool grounded = Physics.SphereCast(this.transform.position, radius, Vector3.down, out hit, groundCheckDistance, groundLayer);
         print(grounded);
         return grounded;
     }
-
-    
 
     private void OnEnable()
     {
@@ -85,7 +72,6 @@ public class RigidMove : MonoBehaviour
     {
         inputActions.Game.Jump.performed += RigidJump;
     }
-    
     
     private void OnDisable()
     {
